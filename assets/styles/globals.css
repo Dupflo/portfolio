@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  @apply selection:bg-slate-800 selection:text-white;
+}
+
+@layer utilities {
+  .animation-delay-75 {
+    animation-delay: 75ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .animation-delay-1200 {
+    animation-delay: 1.2s;
+  }
+
+  .animation-delay-1500 {
+    animation-delay: 1.5s;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-3000 {
+    animation-delay: 3s;
+  }
+}
+
+.underblack {
+  @apply bg-slate-800 text-white px-3 py-1;
+}
+
+.swiper {
+  overflow: visible !important;
+}
+
+.swiper-pagination {
+  bottom: -40px !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-slate-800 !important;
+}
+
+.flip-swiper {
+  @apply max-w-[75px] max-h-[75px] mx-0 mr-3 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply bg-slate-800 w-10 h-10 rounded-full text-white opacity-30 hover:opacity-100 transition ease-in-out !important;
+}
+
+.swiper-button-disabled {
+  @apply opacity-0 !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  @apply text-lg !important;
+}
