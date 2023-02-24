@@ -29,8 +29,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   // Création du message
   const msg = {
-    to: 'contact@dupuisweb.com',
-    from: 'contact@dupuisweb.com',
+    to: 'floriandupuis1996@gmail.com',
+    from: email,
     subject: 'Nouveau message depuis le portfolio',
     text: message,
     html: `
