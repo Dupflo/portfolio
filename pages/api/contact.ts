@@ -30,7 +30,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // Création du message
   const msg = {
     to: 'floriandupuis1996@gmail.com',
-    from: email,
+    from: 'floriandupuis1996@gmail.com',
     subject: 'Nouveau message depuis le portfolio',
     text: message,
     html: `
