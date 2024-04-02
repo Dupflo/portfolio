@@ -1,0 +1,57 @@
+import Stack from "../stack"
+import Image from "next/image"
+import Link from "next/link"
+import EditorDesign from "./img/editor-design.jpg"
+import InstagramScreen from "./img/instagram-screen.jpg"
+import Breadcrumb from "../breadcrumb"
+
+<Breadcrumb parent="Projets" name="Générateur de jeux de concours SaaS pour B2C Buzz" />
+
+# Générateur de jeux de concours SaaS pour B2C Buzz
+
+<Image src="/img/b2c-buzz.png" width={800} height={0} />
+
+J'adore travailler sur des projets SaaS, car ils nécessitent une grande variété de compétences : développement frontend, backend, gestion des paiements, hébergement, etc. Alors, en quoi consiste ce projet ?
+Le public cible principal de B2C Buzz est constitué de commerçants qui ont des stands lors de salons professionnels ou de conventions. L'outil leur permet, moyennant le paiement de crédits (ou d'un abonnement), de créer un concours via un éditeur sans code et de collecter des informations sur les participants (email, nom, âge, ville, etc.). L'application web permet de tirer au sort les gagnants et d'exporter la liste des participants vers un fichier XLS. La publication du concours génère un code QR que les créateurs peuvent télécharger pour une utilisation dans leurs divers supports de communication.
+
+<Link href="https://b2cbuzz.fr" target="_blank">
+	Se rendre sur le site officiel
+</Link>
+
+<Image src={EditorDesign} width={700} />
+
+Si vous souhaitez en savoir plus sur les fonctionnalités de l'application, vous pouvez consulter ces liens
+
+<ul>
+	<li>
+		<a href="https://www.b2cbuzz.fr/guides/accueil.pdf" target="_blank">
+			Guide Utilisateur : Accueil
+		</a>
+	</li>
+	<li>
+		<a href="https://www.b2cbuzz.fr/guides/editeur.pdf" target="_blank">
+			Guide Utilisateur : Éditeur
+		</a>
+	</li>
+	<li>
+		<a href="https://www.b2cbuzz.fr/guides/liste-des-jeux.pdf" target="_blank">
+			Guide Utilisateur : Liste des jeux concours
+		</a>
+	</li>
+</ul>
+
+Je n'étais pas seul sur ce projet, j'ai travaillé uniquement sur le backend et j'ai recruté <Link href="https://github.com/MustaphaHAMADI" target="_blank">@MustaphaHAMADI</Link> et <Link href="https://github.com/AmirAZIZI-dev" target="_blank">Amir Azizi</Link> pour s'occuper du frontend. Mon rôle dans ce projet était de décider de la pile technologique que nous utiliserions et de leur fournir l'API via Strapi CMS et Insomnia.
+
+## Découvrons les choix technologique.
+
+<Stack data={["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "heroku", "stripe"]} />
+
+Laissez-moi expliquer mes choix. Je prends toujours en compte l'utilisateur final et l'administrateur d'une application web. Nous avions pour mission de développer une application web qui affiche les données d'un utilisateur une fois connecté. Cela signifie que chaque utilisateur aurait accès à ses propres données et crédits. Cependant, j'ai également réfléchi à la manière dont je pourrais m'assurer que notre client (dans ce cas, le propriétaire de B2C Buzz) n'aurait pas besoin de nos services à l'avenir pour des problèmes liés aux utilisateurs plutôt que des problèmes de codage. Pourrais-je fournir quelque chose de très puissant sans passer de temps supplémentaire sur le développement de l'application ? C'est là que Strapi intervient.
+
+Strapi est incroyablement utile non seulement pour développer des API robustes avec prise en charge de plusieurs bases de données, étant open-source et auto-hébergé, mais aussi pour fournir un tableau de bord intégré convivial, que j'aime appeler le "Super Admin". Voici donc la solution : j'ai livré l'application demandée à notre client, où les utilisateurs peuvent créer des comptes, acheter des crédits, créer et publier des concours, sans aucune logique de superadmin supplémentaire. De plus, j'ai fourni le tableau de bord Strapi sur une URL séparée pour l'administrateur et d'éventuels futurs collaborateurs de B2C Buzz.
+
+Le principal avantage est que notre client a une visibilité complète sur toutes les données de l'application web : tous les utilisateurs, tous les concours, et la possibilité d'ajouter facilement des crédits à un client ou de bloquer un utilisateur si nécessaire à l'avenir, ils peuvent diriger une équipe de support pour aider les utilisateurs dans leurs créations. Il est important de noter que cette équipe de support n'a pas besoin d'être composée de développeurs ; cela peut être n'importe qui sachant utiliser un ordinateur.
+
+De plus, Strapi renforce la sécurité de notre développement backend. Bien que je sois compétent dans d'autres frameworks comme Nestjs, ExpressJS ou Laravel, je fais confiance à Strapi en tant qu'outil développé et maintenu par une communauté de développeurs. Cela me donne une confiance supplémentaire dans le backend de notre projet.
+
+J'ai dû créer le site web assez rapidement et grâce à ma licence Tailwind UI, j'ai utilisé un modèle prédéfini : Studio, qui est excellent. J'ai utilisé les textes de présentation prédéfinis pour rédiger mes propres textes, j'ai ajouté les projets et connecté le site web à l'API Google My Business pour renforcer la crédibilité de la jeune agence grâce aux avis clients.

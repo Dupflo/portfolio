@@ -1,10 +1,10 @@
+import Github from "@/assets/svg/github-icon.svg"
+import Instagram from "@/assets/svg/instagram-icon.svg"
+import Linkedin from "@/assets/svg/linkedin-icon.svg"
+import Malt from "@/assets/svg/malt-icon.svg"
+import Twitter from "@/assets/svg/twitter.svg"
+import Youtube from "@/assets/svg/youtube-icon.svg"
 import Image from "next/image"
-import Github from "../assets/svg/github-icon.svg"
-import Instagram from "../assets/svg/instagram-icon.svg"
-import Linkedin from "../assets/svg/linkedin-icon.svg"
-import Malt from "../assets/svg/malt-icon.svg"
-import Twitter from "../assets/svg/twitter.svg"
-import Youtube from "../assets/svg/youtube-icon.svg"
 
 const About = ({ name, nickname, data }: any) => {
 	return (

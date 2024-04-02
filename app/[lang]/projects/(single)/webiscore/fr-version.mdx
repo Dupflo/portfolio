@@ -1,0 +1,34 @@
+import Stack from "../stack"
+import Image from "next/image"
+import Link from "next/link"
+import Webiscore from "./img/webiscore.jpg"
+import InstagramScreen from "./img/instagram-screen.jpg"
+import Breadcrumb from "../breadcrumb"
+
+<Breadcrumb parent="Projets" name="Webiscore : Donnez vie à votre jeu en ligne" />
+
+# Webiscore : Donnez vie à votre jeu en ligne
+
+J'aimerais pouvoir consacrer plus de temps à ce projet, notamment au marketing, car je crois vraiment qu'il y a une place pour cette application. Peut-être un jour.
+
+<Image src={Webiscore} />
+
+Webiscore est une application web Next.js, Supabase, Tailwind UI intégrée à l'API OpenAI. C'est un outil que j'ai conçu et lancé en 3 jours pour permettre aux équipes de football de tenir leurs supporters informés de l'évolution des matchs et des scores.
+Avec le système de suggestion de prompts d'IA, le responsable de la communauté peut commenter les matchs comme un commentateur professionnel.
+
+<Link href="https://webiscore.com/en" target="_blank">
+	Visitez l'application
+</Link>
+
+## Ma stack pour ce projet
+
+<Stack data={["nextjs", "tailwindcss", "tailwindui", "vercel", "supabase"]} />
+
+**Cliquez sur l'image ci-dessous pour regarder une démo vidéo sur Instagram**
+
+<Link href="https://www.instagram.com/p/CsZmImgtYIl/" target="_blank">
+	<Image src={InstagramScreen} width={800} />
+</Link>
+
+Il y a une mise à jour en temps réel du score et un compteur de spectateurs. J'ai choisi d'utiliser Tailwind UI pour l'interactivité et la réactivité afin d'atteindre mon objectif de développement et de mise en production en 3 jours. J'ai choisi Supabase
+car j'étais intéressé par le système de mise à jour en temps réel.

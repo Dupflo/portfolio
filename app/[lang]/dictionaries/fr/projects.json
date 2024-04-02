@@ -1,0 +1,194 @@
+[
+	{
+		"name": "Extime.com",
+		"description": "Développement d'une application de gestion des équipements de protection individuelle. Recherche de vols, parking, funnel de vente.",
+		"thumbnail": "/img/extime.jpg",
+		"link": "extime",
+		"stack": ["nextjs", "strapi", "tailwindcss", "azure", "docker"],
+		"homepage_position": 1
+	},
+	{
+		"name": "Buzz B2C",
+		"description": "Développement d'un SaaS. Générateur de concours en ligne avec constructeur/éditeur visuel, générateur de QR code, abonnement en ligne.",
+		"thumbnail": "/img/b2c-buzz.png",
+		"link": "b2cbuzz",
+		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "heroku", "stripe"],
+		"homepage_position": 4
+	},
+	{
+		"name": "Epify",
+		"description": "Application web de gestion des équipements de protection individuelle. Gestion des stocks, carte interactive, conception de tableaux de bord personnalisés.",
+		"thumbnail": "/img/epify.jpg",
+		"link": "epify",
+		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "heroku", "stripe"],
+		"homepage_position": 2
+	},
+	{
+		"name": "TenderCulture - Poddium",
+		"description": "Gain de temps depuis la rédaction du cahier des charges jusqu'au choix du fournisseur grâce à l'algorithme de classement.",
+		"thumbnail": "/img/tenderculture-poddium.jpg",
+		"external_link": "https://www.tenderculture.com/poddium-overview",
+		"stack": ["nextjs", "firebase", "chakraui", "stripe"],
+		"homepage_position": 7
+	},
+	{
+		"name": "TenderCulture - Bibliothèque",
+		"description": "Développement d'une Marketplace de vente de supports numériques. Calculateur de ROI investissement. Paiement en ligne.",
+		"thumbnail": "/img/tenderculture-library.png",
+		"external_link": "https://library.tenderculture.com",
+		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "stripe"],
+		"homepage_position": 5
+	},
+	{
+		"name": "Webiscore",
+		"description": "Jeux de l'équipe de commentaires en direct. Tenez les fans en ligne informés de l'évolution du match grâce à l'intelligence artificielle.",
+		"thumbnail": "/img/webiscore.jpg",
+		"link": "webiscore",
+		"stack": ["nextjs", "tailwindcss", "tailwindui", "vercel", "supabase", "illustrator"],
+		"homepage_position": 9
+	},
+	{
+		"name": "Aéroports de Paris | Groupe ADP",
+		"description": "Modernisation technologique et graphique de la page d'accueil d'Aéroports de Paris. Recherche de vols et parkings.",
+		"thumbnail": "/img/parisaeroport.jpg",
+		"external_link": "https://www.parisaeroport.fr",
+		"stack": ["nextjs", "strapi", "tailwindcss", "azure"],
+		"homepage_position": 8
+	},
+	{
+		"name": "Anywwwhere",
+		"description": "Le site Internet de mon agence construit avec des technologies modernes pour promouvoir les activités de notre entreprise.",
+		"thumbnail": "/img/anywwwhere.png",
+		"link": "anywwwhere",
+		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui"],
+		"homepage_position": 5
+	},
+	{
+		"name": "Vuse.com Canada",
+		"description": "Maintenance, optimisation, intégration de nouvelles fonctionnalités Front-End & Back-End sous les frameworks Koa.JS (Node.js) + et Gatsby.JS (React.JS).",
+		"thumbnail": "/img/vuse.jpg",
+		"external_link": "https://www.vuse.com/ca/en",
+		"stack": ["gatsby", "koa", "styled-component", "kubernetes", "docker"]
+	},
+	{
+		"name": "Menu interactif Obypay",
+		"description": "Développement d'un menu interactif mobile et tablette pour les clients Obypay sous le framework Nuxt.JS (Vue.JS).",
+		"thumbnail": "/img/obypay.jpg",
+		"external_link": "https://obypay.fr",
+		"stack": ["nuxtjs"]
+	},
+	{
+		"name": "J&B Débarras",
+		"description": "Site vitrine pour un professionnel du déstockage interne basé sur Wordpress. Construit avec Oxygen Builder basé sur React, formulaire de contact.",
+		"thumbnail": "/img/jbdebarras.png",
+		"external_link": "https://debarrasmaison-nantes.com",
+		"stack": ["wordpress", "oxygen-builder", "cloudflare"]
+	},
+	{
+		"name": "Signal RadioCom",
+		"description": "Site vitrine pour un professionnel de la communication radio basé sur Wordpress. Construit avec Oxygen builder basé sur React, formulaire de contact.",
+		"thumbnail": "/img/radiocom.png",
+		"external_link": "https://radiocom-signal.fr",
+		"stack": ["wordpress", "oxygen-builder", "cloudflare", "illustrator"]
+	},
+	{
+		"name": "Carte interactive du Philtre",
+		"description": "Optimisation technique du site, ajout de fonctionnalités de contrôle d'âge et carte interactive des points de distribution. Basé sur React.JS et Wordpress Headless API.",
+		"thumbnail": "/img/lephiltre.jpg",
+		"external_link": "https://lephiltre.com",
+		"stack": ["wordpress", "reactjs"]
+	},
+	{
+		"name": "Annonces site Esprit-Auto",
+		"description": "Mise en place d'un site d'annonces de vendeurs de voitures alimenté par une API. Front-End sous le framework React.JS et contenu délivré par l'API Wordpress.",
+		"thumbnail": "/img/espritauto.jpg",
+		"external_link": "https://esprit-auto44.com",
+		"stack": ["wordpress", "reactjs"]
+	},
+	{
+		"name": "Vitrine de l'événement Effidays",
+		"description": "Site vitrine avec calendrier d'événements interactif. Intégré sous le framework Nuxt.JS (Nuxt.JS) pour un temps de chargement optimal",
+		"thumbnail": "/img/effidays.jpg",
+		"external_link": "https://www.efffinity.fr/effidays",
+		"stack": ["nuxtjs"]
+	},
+	{
+		"name": "Refonte Effilocal",
+		"description": "Refonte graphique sur de nouvelles bases du CMS WordPress et du constructeur de thème Elementor Pro.",
+		"thumbnail": "/img/effilocal.jpg",
+		"external_link": "https://www.effilocal.com",
+		"stack": ["wordpress", "elementor"]
+	},
+	{
+		"name": "E-Shop Taillevent repensé",
+		"description": "Refonte graphique d'un site Prestashop 1.6 vers Prestashop 1.7. Migration des données sans perte et optimisation des performances.",
+		"thumbnail": "/img/taillevent.jpg",
+		"external_link": "https://www.lescavesdetaillevent-eshop.com",
+		"stack": ["prestashop", "elementor"]
+	},
+	{
+		"name": "Corse Collectivités - Flyer and graphic chart",
+		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"thumbnail": "/img/corse-collectivite.jpg",
+		"external_link": "https://paleordovi.fr",
+		"stack": ["illustrator", "indesign"]
+	},
+	{
+		"name": "CSDL: website and graphic chart",
+		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"thumbnail": "/img/csdl.jpg",
+		"external_link": "https://www.csdl44.fr/",
+		"stack": ["wordpress", "divi", "illustrator", "indesign", "premiere-pro"]
+	},
+	{
+		"name": "Site vitrine du groupe Onyx",
+		"description": "Création d'un site internet vitrine visant à promouvoir l'entreprise. Réalisé sous Wordpress à l'aide du constructeur de thème Divi.",
+		"thumbnail": "/img/groupeonyx.jpg",
+		"external_link": "https://groupeonyx.bzh",
+		"stack": ["wordpress", "divi", "cloudflare", "illustrator"]
+	},
+	{
+		"name": "Commerce électronique Emeu KidStore",
+		"description": "Réalisation d'un site E-Commerce personnalisable sous le CMS Prestashop 1.7. Intégration du module d'affiliation et de partenariat.",
+		"thumbnail": "/img/emeukidstore.jpg",
+		"external_link": "https://emeu-kidstore.com",
+		"stack": ["prestashop", "javascript", "photoshop"]
+	},
+	{
+		"name": "Atelier de voyage E-Shop",
+		"description": "Refonte graphique et migration d'un site Prestashop 1.6 vers Prestashop 1.7. Mise en place d'un module de personnalisation de valise.",
+		"thumbnail": "/img/ateliervoyage.jpg",
+		"external_link": "/",
+		"stack": ["prestashop", "javascript"]
+	},
+	{
+		"name": "Commerce électronique Hannahpad",
+		"description": "Maintenance, optimisation des performances du site. Ajout de nouvelles fonctionnalités. Maintenance d'un serveur dédié OVH.",
+		"thumbnail": "/img/hannahpad.jpg",
+		"external_link": "https://hannahpad.fr/",
+		"stack": ["prestashop", "javascript", "cloudflare", "photoshop"],
+		"homepage_position": 10
+	},
+	{
+		"name": "Piercing Popart E-Commerce",
+		"description": "Réalisation d'un site E-Commerce sécurisé sur mesure sous le CMS Prestashop 1.7. Responsive Mobile/Tablette/Desktop. Maintient les performances du site.",
+		"thumbnail": "/img/popartpiercing.jpg",
+		"external_link": "https://popartpiercing.com",
+		"stack": ["prestashop", "javascript", "cloudflare", "photoshop", "illustrator"]
+	},
+	{
+		"name": "Site Paléordovi",
+		"description": "Création d'un site vitrine visant à mettre en valeur le site archéologique. Réalisé sous Wordpress à l'aide du constructeur de thème Divi.",
+		"thumbnail": "/img/paleordovie.jpg",
+		"external_link": "https://paleordovi.fr",
+		"stack": ["wordpress", "divi", "illustrator", "indesign"]
+	},
+	{
+		"name": "Orzale Sport",
+		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"thumbnail": "/img/orzale.jpg",
+		"link": "orzale",
+		"stack": ["prestashop", "illustrator", "photoshop", "indesign", "after-effect", "premiere-pro"],
+		"homepage_position": 3
+	}
+]

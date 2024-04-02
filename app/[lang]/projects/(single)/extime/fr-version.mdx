@@ -1,0 +1,163 @@
+import Stack from "../stack"
+import Image from "next/image"
+import Link from "next/link"
+import Breadcrumb from "../breadcrumb"
+import ExtimeHomepage from "./img/extime-homepage.jpg"
+
+<Breadcrumb parent="Projets" name="Extime.com" />
+
+# Extime.com
+
+<Image src="/img/extime-mock-up.png" width={800} height={0} />
+
+Celui-ci est comme mon bébé. J'ai écrit la première ligne en 2021 et je travaille toujours sur ce projet. C'est ce projet qui m'a tout appris sur Next.js, de la version 11 à la version 14 aujourd'hui. Il m'a amené à participer à 2 conférences React.js et 3 conférences Next.js, car je veux toujours rendre cette application aussi optimisée et à jour que possible. Cette application est un mélange d'API internes (recherche de vols, recherche et réservation de parking, recherche d'offres, authentification) et de Strapi CMS pour la gestion du contenu. J'ai également beaucoup appris sur Strapi en développant quelques plugins privés pour nos besoins.
+
+## Les technologies de ce projet
+
+<Stack data={["nextjs", "strapi", "tailwindcss", "azure", "docker"]} />
+
+L'application permet aux clients de commander des produits en hors taxes avant leur vol. Ils doivent saisir leurs informations de vol, et le catalogue sera mis à jour en fonction de la disponibilité des produits au terminal de vol. Selon la destination finale du vol, les prix affichés varieront, soit en excluant soit en incluant les taxes, ou avec différentes promotions basées sur le terminal de départ du client. Les clients peuvent également réserver une place de parking selon leurs informations de vol.
+
+<Link href="https://extime.com" target="_blank">
+	Visiter la marketplace
+</Link>
+
+Depuis que nous avons réussi à redessiner la page d'accueil du site Web <Link href="https://www.parisaeroport.fr/">Paris Aéroports</Link> avec notre stack, nous avons décidé de baser la marketplace Extime sur Next.js et Tailwind CSS. Tailwind a contribué à réduire notre temps d'intégration. Depuis 2021, je travaille uniquement avec un autre développeur frontend, mais j'ai développé 95 % des fonctionnalités, des composants et des animations d'Extime. J'avais l'impression que c'était beaucoup de travail pour un seul développeur, mais mon chef de produit a fait un travail formidable en organisant mes tâches toutes les deux semaines (la durée d'un sprint).
+
+<Image src={ExtimeHomepage} width={1000} height={0} />
+
+Le design était un aspect important car nous recherchions une intégration pixel parfaite, mais nous avions beaucoup plus de sujets techniques concernant Next.js et les fonctionnalités et performances du backend, car il s'agit d'un site Web à très fort trafic et sujet aux attaques de hackers.
+
+Nous avons visé à ce que le site Web consomme peu d'API. Il y a plus de 250 pages en français et en anglais construites statiquement en utilisant la génération de site Web statique incrémentielle. Cela diffère les appels d'API au moment de la construction, et nous utilisons les webhooks Strapi et la révalidation API de Next.js pour mettre à jour la page sur demande. Le système est toujours basé sur l'application de pages, mais nous travaillons actuellement sur une refonte du répertoire de l'application.
+
+Voici un exemple de lecture d'un webhook de page de révalidation d'API.
+
+<code>/api/revalidate</code>
+```javascript import {(revalidateEntireApp, revalidateModelStaticFile, revalidatePagesByType, revalidateSinglePage)} from "@helpers/revalidation" import {logger} from "@utils/logger" import {(NextApiRequest, NextApiResponse)} from "next"
+
+export default async function handlerRevalidation(req: NextApiRequest, res: NextApiResponse) {
+	if (req.method === "POST") {
+		const { event, query } = req.body
+		if (event === "trigger-test") {
+			if (query === "revalidate=full") {
+				await revalidateEntireApp(res, "REVALIDATE_FULL")
+			} else {
+				logger.info("TRIGGER_TEST:RECEIVED")
+			}
+		} else if (event === "app-start") {
+			await revalidateEntireApp(res, "REVALIDATE_START")
+		} else {
+			const { model, entry } = req.body
+			switch (true) {
+				case model === "page":
+					await revalidateSinglePage(entry, res)
+					break
+				case model === "contact" || model === "offer" || model === "brand":
+					await revalidatePagesByType(model, entry, res)
+					break
+				default:
+					await revalidateModelStaticFile(model, entry, res)
+			}
+		}
+		return res.json({ revalidated: true })
+	}
+	return res.json({ revalidated: false })
+}
+```
+
+<code>revalidateSinglePage()</code>
+
+```javascript import {(fetchAPI, getStrapiDataFromJSON)} from "@helpers/app/strapi" import {logger} from "@utils/logger" import {NextApiResponse} from "next" import {StrapiRedirection} from "types"
+export default async function revalidateSinglePage(entry: any, res: NextApiResponse) {
+	try {
+		const { relative_url, locale } = entry
+
+		logger.info(`SINGLE_PAGE_REVALIDATE:START /${locale}${relative_url}`)
+		await res.revalidate(`/${locale}${relative_url}`) // on revalide la page
+		logger.info(`SINGLE_PAGE_REVALIDATE:DONE  /${locale}${relative_url}`)
+
+		setTimeout(async () => {
+			const redirections = await getStrapiDataFromJSON("redirections", locale, false)
+			const foundPageToRemove = redirections.data.find((redirection: StrapiRedirection) => redirection.attributes.destination === relative_url && !redirection.attributes.revalidated)
+			if (foundPageToRemove) {
+				const oldUrl = `/${locale}${foundPageToRemove.attributes.source}`
+
+				logger.info(`OLD_PAGE_REMOVE:START ${oldUrl}`)
+				await res.revalidate(oldUrl)
+				logger.info(`OLD_PAGE_REMOVE:DONE  ${oldUrl}`)
+
+				await fetchAPI(
+					`/redirections/${foundPageToRemove.id}`,
+					locale,
+					{
+						data: {
+							revalidated: true,
+						},
+					},
+					false,
+					"PUT"
+				)
+				logger.info(`OLD_PAGE_CREATE_REDIRECTION:DONE ${oldUrl}`)
+			}
+		}, 5000)
+	} catch (err) {
+		logger.error(JSON.stringify(err))
+	}
+}
+```
+
+Le principal défi de la révalidation est que l'application fonctionne sur trois instances de serveur. Lorsque nous déclenchons la révalidation via des événements de webhook, nous devons révalider les trois instances. Pour cela, nous utilisons <Link href="https://azure.microsoft.com/en-us/products/service-bus/" target="_blank">Azure Service Bus</Link> pour recevoir des messages de Strapi et les dispatcher vers l'application Next.js. Pour écouter les messages reçus, nous devons développer un petit fichier <code>server.js</code> personnalisé.
+
+<code>connectAzureBus() function into server.js file</code>
+
+```
+const {(ServiceBusClient, ServiceBusAdministrationClient)} = require("@azure/service-bus")
+const axios = require("axios") const {getServerUrl} = require("../../utils/get-server-url")
+const {logger} = require("../../utils/logger")
+
+async function connectAzureBus() {
+const { serverUrl } = getServerUrl()
+
+    const connectionString = process.env.SERVICE_BUS_CONNECTION_STRING_APP_LISTEN
+    const topicName = process.env.SERVICE_BUS_TOPIC_NAME
+    const subscriptionName = `mkpl_app_${Date.now()}`
+
+    const serviceBusAdministrationClient = new ServiceBusAdministrationClient(connectionString)
+
+    await serviceBusAdministrationClient.createSubscription(topicName, subscriptionName, { autoDeleteOnIdle: "PT5M" }).catch(error => {
+    	logger.error(JSON.stringify(error))
+    })
+    const sbClient = new ServiceBusClient(connectionString)
+
+    const receiver = sbClient.createReceiver(topicName, subscriptionName)
+
+    const myMessageHandler = async messageReceived => {
+    	const { body } = messageReceived
+    	logger.info(`AZURE_BUS ${JSON.stringify(body)}`)
+    	await axios.post(`${serverUrl}/api/webhook/revalidate`, body, {
+    		headers: {
+    			Authorization: `Bearer ${process.env.APP_API_KEY}`,
+    		},
+    	})
+    }
+
+    const myErrorHandler = async error => {
+    	logger.error(JSON.stringify(error))
+    }
+
+    receiver.subscribe({
+    	processMessage: myMessageHandler,
+    	processError: myErrorHandler,
+    })
+
+}
+
+module.exports = {
+connectAzureBus,
+}
+
+```
+
+### Mes contributions à l'Open Source avec les plugins Strapi
+
+De plus, j'ai également apporté des contributions à deux plugins Strapi : <Link href="https://github.com/mattmilburn/strapi-plugin-preview-button/pull/62" target="_blank">strapi-plugin-preview-button</Link> et <Link href="https://github.com/lautr/strapi-plugin-duplicate-button/pull/4" target="_blank">strapi-plugin-duplicate-button</Link>. Lorsque j'utilisais ces plugins, j'ai découvert certains problèmes et fonctionnalités manquantes pour nos besoins et pour la communauté. Mes demandes de tirage sont attachées aux liens. Ce sont de petites contributions, mais je suis fier d'elles. J'aimerais pouvoir faire plus de contributions open-source à l'avenir, mais je manque de temps pour le moment.

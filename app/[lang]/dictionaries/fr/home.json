@@ -1,0 +1,64 @@
+{
+	"meta": {
+		"name": "Florian Dupuis",
+		"title": "Florian Dupuis | Développeur Fullstack",
+		"description": "Freelance Développeur Web Full Stack, Designer & Entrepreneur",
+		"nickname": "@dupflo"
+	},
+	"hero": {
+		"word1": "Bienvenue",
+		"word2": "Sur Mon",
+		"word3": "Webfolio",
+		"title": "Développeur"
+	},
+	"about": {
+		"description": "Bonjour, je m'appelle Florian Dupuis, et je suis un développeur web indépendant de 27 ans. Je code depuis plus de 10 ans et j'adore explorer les nouvelles technologies dans le domaine numérique, en particulier dans le domaine du web. J'ai développé un fort intérêt pour le développement web Front-End et Back-End, avec JavaScript comme spécialité. Je suis également compétent en langage PHP et j'ai une vaste expérience avec les plateformes de CMS telles que WordPress et PrestaShop.\n\nJ'aime voyager à travers le monde tout en écrivant simultanément des lignes de code. J'ai passé 3 ans aux États-Unis, 2 ans au Canada, et je réside actuellement en France. Je suis un amateur de football et j'apprécie écouter de la musique rock.\n\nJ'ai travaillé de manière extensive en tant que développeur freelance, et en 2023, j'ai fondé une agence digitale appelée Anywhere. Depuis plus de trois ans maintenant, je travaille avec Groupe ADP | Aéroports de Paris, les aidant dans leur transformation numérique en développant des fonctionnalités innovantes et des projets utilisant des technologies de pointe à travers Extime.com.",
+		"cta": {
+			"title": "Télécharger mon CV",
+			"file": "#"
+		}
+	},
+	"stack": {
+		"title": "Ma <span class='underblack'>Stack</span> favorite"
+	},
+	"projects": {
+		"title": "Ma sélection de <span class='underblack'>projets</span>"
+	},
+	"contact": {
+		"title": "Me <span class='underblack'>Contacter</span> ?",
+		"form": {
+			"firstName": {
+				"label": "Prénom",
+				"placeholder": "John",
+				"warning": "15 caractères minimum",
+				"error": "Champs obligatoire"
+			},
+			"lastName": {
+				"label": "Nom",
+				"placeholder": "Doe",
+				"warning": "20 caractères minimum",
+				"error": "Champs obligatoire"
+			},
+			"company": {
+				"label": "Société",
+				"placeholder": "Votre société",
+				"warning": "20 caractères minimum",
+				"error": "Champs obligatoire"
+			},
+			"email": {
+				"label": "E-Mail",
+				"placeholder": "john@doe.com",
+				"warning": "Format d'adresse e-mail invalide",
+				"error": "Champs obligatoire"
+			},
+			"message": {
+				"label": "Message",
+				"placeholder": "Saisissez votre message ici...",
+				"warning": "Must be 20 characters or less",
+				"error": "Champs obligatoire"
+			},
+			"submit": "Envoyer",
+			"success": "Message envoyé avec succès."
+		}
+	}
+}

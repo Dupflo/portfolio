@@ -1,0 +1,58 @@
+import Stack from "../stack"
+import Image from "next/image"
+import Link from "next/link"
+import EditorDesign from "./img/editor-design.jpg"
+import InstagramScreen from "./img/instagram-screen.jpg"
+import Breadcrumb from "../breadcrumb"
+
+<Breadcrumb parent="Projects" name="B2C Buzz : SaaS Contest Game Generator" />
+
+# B2C Buzz : SaaS Contest Game Generator
+
+<Image src="/img/b2c-buzz.png" width={800} height={0} />
+
+I love working on SaaS project, it asks so much variety of skills : _frontend_, _backend_, _payment_, _hosting_. So what it does ?
+The main target audience of B2C Buzz is merchants who have booths at trade shows or conventions. The tool allows them, for the payment of credits (or a subscription), to create a contest via a no-code editor and collect information about participants (email, name, age, city, etc.). The web application enables the drawing of winners and exporting the list of participants to an XLS file. Publishing the contest generates a QR code that creators can download for use in their various communication materials.
+
+If you want to read more about the app fonctionnality you read this links (sorry it is French but you can at least see the differents screens)
+
+<Link href="https://b2cbuzz.fr" target="_blank">
+	Visit the app
+</Link>
+
+<Image src={EditorDesign} width={700} />
+
+<ul>
+	<li>
+		<a href="https://www.b2cbuzz.fr/guides/accueil.pdf" target="_blank">
+			User Guide : Home
+		</a>
+	</li>
+	<li>
+		<a href="https://www.b2cbuzz.fr/guides/editeur.pdf" target="_blank">
+			User Guide : Editor
+		</a>
+	</li>
+	<li>
+		<a href="https://www.b2cbuzz.fr/guides/liste-des-jeux.pdf" target="_blank">
+			User Guide: Contest list
+		</a>
+	</li>
+</ul>
+
+I was not alone on this project, I only worked on the backend and I enrolled <Link href="https://github.com/MustaphaHAMADI" target="_blank">@MustaphaHAMADI</Link> and <Link href="https://github.com/AmirAZIZI-dev" target="_blank">@AmirAZIZI-dev</Link> for take care of the frontend.
+My role in this project was to decided what stack we will use and provide them the API through _Strapi CMS_ and _Insomnia_.
+
+## Let's discovered the full stack
+
+<Stack data={["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "heroku", "stripe"]} />
+
+Let me explain my choices. I always consider the end user and the administrator of a web application. We were tasked with developing a web application that displays a user's own data once connected. This means that each user would have access to their own data and credits. However, I also thought about how I could ensure that our customer (in this case, the owner of B2C Buzz) wouldn't need our services in the future for user-related issues rather than coding issues. Could I provide something else very powerful without spending additional time on app development? That's where Strapi comes in.
+
+Strapi is incredibly helpful not only for developing robust APIs with support for multiple databases, being open-source and self-hosted, but also for providing a user-friendly built-in dashboard, which I like to call the "Super Admin." So, here's the solution: I delivered the requested app to our customer, where users can create accounts, purchase credits, create and publish contests, without any extra superadmin logic. Additionally, I provided the Strapi dashboard on a separate URL for the administrator and any future collaborators of B2C Buzz.
+
+The main advantage is that our customer has full visibility into all the data of the web application: all users, all contests, and the ability to easily add credits to a customer or block a user. If needed in the future, they can lead a support team to assist users with their creations. Importantly, this support team doesn't need to be composed of developers; it can be anyone who knows how to use a computer.
+
+Furthermore, Strapi enhances the safety of our backend development. While I am proficient in other frameworks like Nestjs, ExpressJS, or Laravel, I trust in Strapi as a tool developed and maintained by a community of developers. This gives me added confidence in our project's backend.
+
+I had to create the website pretty quick and thanks of my Tailwind UI licence I used a premade template : <Link href="https://tailwindui.com/templates/studio" target="_blank">Studio</Link> which is great. I used the premade presentation texts to write my own texts, had the projects and connect the website to the Google My Business API to inforce the credibility of the young Agency through customer reviews.

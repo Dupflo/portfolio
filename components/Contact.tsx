@@ -1,7 +1,7 @@
+"use client"
 import cn from "classnames"
 import { Form, Formik } from "formik"
 import { toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
 import * as Yup from "yup"
 import Title from "./Elements/Title"
 

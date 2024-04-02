@@ -1,0 +1,35 @@
+import Stack from "../stack"
+import Image from "next/image"
+import Link from "next/link"
+import Preconisations from "./img/preconisations.jpg"
+import Stock from "./img/stock.jpg"
+import Employee from "./img/employee.jpg"
+import Breadcrumb from "../breadcrumb"
+
+<Breadcrumb parent="Projects" name="Epify : Learn and manage Personal Protective Equipment (EPI)" />
+
+# Epify : Learn and manage Personal Protective Equipment (EPI)
+
+Epify is a tool designed for municipal administrations. In France, many public companies still rely on inadequate digital solutions to manage their activities. This is particularly evident with Personal Protective Equipment (EPI) management, where numerous municipalities continue to use Excel sheets, and there is a lack of training on security awareness. Enter Epify, the first learning and management system for Personal Protective Equipment (EPI).
+
+## The stack for this project
+
+<Stack data={["nextjs", "tailwindcss", "tailwindui", "vercel", "heroku"]} />
+
+Purchasing a license grants access to knowledge through recommended guidelines.
+
+<Image src={Preconisations} width={1000} />
+
+The most crucial feature is the tracking of stock, employees, and endowments. As a developer, you have to think about the project like if it was an e-commerce system: there are products available in single or variant sizes, managed through stock management which determines the quantity of items in the warehouse, how many are reserved, and how many are available (subscription to warehouse stock and reserved items).
+
+<Image src={Stock} width={1000} />
+
+Employees are treated like customers, with their photo, information, and default product sizes. These same "customers" receive products through endowments (reference to customer orders) prepared by the municipal administration. Upon collecting their endowment (the order), employees must sign for it, and the reception date is recorded while the stock is updated. This allows the municipal administration to easily monitor their stock levels and ensure their employees are well-equipped. Additionally, they can set an endowment obsolescence date to receive notifications when products need replacement.
+
+<Image src={Employee} width={1000} />
+
+There are also other functionalities such as XLSX export, partner maps with LeafletJS, and blog articles connected via the Wordpress API (the website).
+
+<Link href="https://epify.fr/" target="_blank">
+	Visit the website
+</Link>

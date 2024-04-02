@@ -1,0 +1,35 @@
+import Stack from "../stack"
+import Image from "next/image"
+import Link from "next/link"
+import Preconisations from "./img/preconisations.jpg"
+import Stock from "./img/stock.jpg"
+import Employee from "./img/employee.jpg"
+import Breadcrumb from "../breadcrumb"
+
+<Breadcrumb parent="Projets" name=" Epify : Apprendre et gérer les Équipements de Protection Individuelle (EPI)" />
+
+# Epify : Apprendre et gérer les Équipements de Protection Individuelle (EPI)
+
+Epify est un outil conçu pour les administrations municipales. En France, de nombreuses entreprises publiques continuent de s'appuyer sur des solutions numériques inadéquates pour gérer leurs activités. Cela est particulièrement évident dans la gestion des Équipements de Protection Individuelle (EPI), où de nombreuses municipalités continuent d'utiliser des feuilles Excel, et où il y a un manque de formation en matière de sensibilisation à la sécurité. Entrez dans Epify, le premier système d'apprentissage et de gestion pour les Équipements de Protection Individuelle (EPI).
+
+## Les technologies utilisés pour ce projet
+
+<Stack data={["nextjs", "tailwindcss", "tailwindui", "vercel", "heroku"]} />
+
+L'achat d'une licence donne accès à des connaissances à travers des directives recommandées.
+
+<Image src={Preconisations} width={1000} />
+
+La fonction la plus cruciale est le suivi des stocks, des employés et des dotations. En tant que développeur, vous devez envisager le projet comme s'il s'agissait d'un système de commerce électronique : il y a des produits disponibles en tailles simples ou variantes, gérés via la gestion des stocks qui détermine la quantité d'articles en entrepôt, combien sont réservés et combien sont disponibles (abonnement aux stocks d'entrepôt et aux articles réservés).
+
+<Image src={Stock} width={1000} />
+
+Les employés sont traités comme des clients, avec leur photo, leurs informations et leurs tailles de produits par défaut. Ces mêmes "clients" reçoivent des produits à travers des dotations (référence aux commandes des clients) préparées par l'administration municipale. Lorsqu'ils récupèrent leur dotation (la commande), les employés doivent la signer, et la date de réception est enregistrée tandis que le stock est mis à jour. Cela permet à l'administration municipale de surveiller facilement les niveaux de stock et de s'assurer que ses employés sont bien équipés. De plus, ils peuvent définir une date d'obsolescence de la dotation pour recevoir des notifications lorsque les produits doivent être remplacés.
+
+<Image src={Employee} width={1000} />
+
+Il existe également d'autres fonctionnalités telles que l'exportation en XLSX, des cartes de partenaires avec LeafletJS et des articles de blog connectés via l'API Wordpress (le site web).
+
+<Link href="https://epify.fr/" target="_blank">
+	Visitez le site web
+</Link>

@@ -1,0 +1,194 @@
+[
+	{
+		"name": "Extime.com",
+		"description": "Development of an application for managing personal protective equipment. Search for flights, parking, sales funnel.",
+		"thumbnail": "/img/extime.jpg",
+		"link": "extime",
+		"stack": ["nextjs", "strapi", "tailwindcss", "azure", "docker"],
+		"homepage_position": 1
+	},
+	{
+		"name": "B2C Buzz",
+		"description": "Development of a SaaS. Online competition generator with visual builder/editor, QR code generator, online subscription.",
+		"thumbnail": "/img/b2c-buzz.png",
+		"link": "b2cbuzz",
+		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "heroku", "stripe"],
+		"homepage_position": 4
+	},
+	{
+		"name": "Epify",
+		"description": "Personal protective equipment management web application. Stock management, interactive map, custom dashboard design.",
+		"thumbnail": "/img/epify.jpg",
+		"link": "epify",
+		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "heroku", "stripe"],
+		"homepage_position": 2
+	},
+	{
+		"name": "TenderCulture - Poddium",
+		"description": "Saves time from the writing of the specifications to the choice of the supplier thanks to the algorithm of classification.",
+		"thumbnail": "/img/tenderculture-poddium.jpg",
+		"external_link": "https://www.tenderculture.com/poddium-overview",
+		"stack": ["nextjs", "firebase", "chakraui", "stripe"],
+		"homepage_position": 7
+	},
+	{
+		"name": "TenderCulture - Library",
+		"description": "Marketplace development for selling digital supports. ROI calculator investment. Online payment.",
+		"thumbnail": "/img/tenderculture-library.png",
+		"external_link": "https://library.tenderculture.com",
+		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "stripe"],
+		"homepage_position": 5
+	},
+	{
+		"name": "Webiscore",
+		"description": "Live commentary team's games. Keep online fans informed of the progress of the match using Artificial Intelligence.",
+		"thumbnail": "/img/webiscore.jpg",
+		"link": "webiscore",
+		"stack": ["nextjs", "tailwindcss", "tailwindui", "vercel", "supabase", "illustrator"],
+		"homepage_position": 9
+	},
+	{
+		"name": "Paris airports | ADP Group",
+		"description": "Technological and graphic modernization of the Aéroports de Paris home page. Flights and parkings search.",
+		"thumbnail": "/img/parisaeroport.jpg",
+		"external_link": "https://www.parisaeroport.fr",
+		"stack": ["nextjs", "strapi", "tailwindcss", "azure"],
+		"homepage_position": 8
+	},
+	{
+		"name": "Anywwwhere",
+		"description": "My agency website built with modern technologies to promote our company activities.",
+		"thumbnail": "/img/anywwwhere.png",
+		"link": "anywwwhere",
+		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui"],
+		"homepage_position": 5
+	},
+	{
+		"name": "Vuse.com Canada",
+		"description": "Maintenance, optimization, integration of new Front-End & Back-End features under the Koa.JS (Node.js) + and Gatsby.JS (React.JS) frameworks.",
+		"thumbnail": "/img/vuse.jpg",
+		"external_link": "https://www.vuse.com/ca/en",
+		"stack": ["gatsby", "koa", "styled-component", "kubernetes", "docker"]
+	},
+	{
+		"name": "Obypay Interactive Menu",
+		"description": "Development of an interactive mobile and tablet menu for Obypay customers under the Nuxt.JS (Vue.JS) framework.",
+		"thumbnail": "/img/obypay.jpg",
+		"external_link": "https://obypay.fr",
+		"stack": ["nuxtjs"]
+	},
+	{
+		"name": "J&B Débarras",
+		"description": "Showcase site for a professional in house clearance based on Wordpress. Built with Oxygen builder based on React, contact form.",
+		"thumbnail": "/img/jbdebarras.png",
+		"external_link": "https://debarrasmaison-nantes.com",
+		"stack": ["wordpress", "oxygen-builder", "cloudflare"]
+	},
+	{
+		"name": "RadioCom Signal",
+		"description": "Showcase site for a professional in radio communication based on Wordpress. Built with Oxygen builder based on React, contact form.",
+		"thumbnail": "/img/radiocom.png",
+		"external_link": "https://radiocom-signal.fr",
+		"stack": ["wordpress", "oxygen-builder", "cloudflare", "illustrator"]
+	},
+	{
+		"name": "Le Philtre Interactive Map",
+		"description": "Technical optimization of the site, addition of age control features and interactive map of distribution points. Based on React.JS and Wordpress Headless API.",
+		"thumbnail": "/img/lephiltre.jpg",
+		"external_link": "https://lephiltre.com",
+		"stack": ["wordpress", "reactjs"]
+	},
+	{
+		"name": "Ads website Esprit-Auto",
+		"description": "Implementation of an cars seller ads site powered by an API. Front-End under the React.JS framework and content delivered by Wordpress API.",
+		"thumbnail": "/img/espritauto.jpg",
+		"external_link": "https://esprit-auto44.com",
+		"stack": ["wordpress", "reactjs"]
+	},
+	{
+		"name": "Effidays event showcase",
+		"description": "Showcase site with interactive event calendar. Integrated under the Nuxt.JS (Nuxt.JS) framework for optimal loading time",
+		"thumbnail": "/img/effidays.jpg",
+		"external_link": "https://www.effinity.fr/effidays",
+		"stack": ["nuxtjs"]
+	},
+	{
+		"name": "Effilocal redesign",
+		"description": "Graphic redesign on a new basis of the WordPress CMS and the Elementor Pro theme builder.",
+		"thumbnail": "/img/effilocal.jpg",
+		"external_link": "https://www.effilocal.com",
+		"stack": ["wordpress", "elementor"]
+	},
+	{
+		"name": "Redesigned E-Shop Taillevent",
+		"description": "Graphic redesign of a Prestashop 1.6 site to Prestashop 1.7. Lossless data migration and performance optimization.",
+		"thumbnail": "/img/taillevent.jpg",
+		"external_link": "https://www.lescavesdetaillevent-eshop.com",
+		"stack": ["prestashop", "elementor"]
+	},
+	{
+		"name": "Corse Collectivités - Flyer and graphic chart",
+		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"thumbnail": "/img/corse-collectivite.jpg",
+		"external_link": "https://paleordovi.fr",
+		"stack": ["illustrator", "indesign"]
+	},
+	{
+		"name": "CSDL: website and graphic chart",
+		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"thumbnail": "/img/csdl.jpg",
+		"external_link": "https://www.csdl44.fr/",
+		"stack": ["wordpress", "divi", "illustrator", "indesign", "premiere-pro"]
+	},
+	{
+		"name": "Onyx Group Showcase Site",
+		"description": "Creation of a showcase websitesite aimed to promote the company. Made in Wordpress using the Divi theme builder.",
+		"thumbnail": "/img/groupeonyx.jpg",
+		"external_link": "https://groupeonyx.bzh",
+		"stack": ["wordpress", "divi", "cloudflare", "illustrator"]
+	},
+	{
+		"name": "E-Commerce Emeu KidStore",
+		"description": "Realization of a customizable E-Commerce website under the Prestashop 1.7 CMS. Affiliate and partnership module integration.",
+		"thumbnail": "/img/emeukidstore.jpg",
+		"external_link": "https://emeu-kidstore.com",
+		"stack": ["prestashop", "javascript", "photoshop"]
+	},
+	{
+		"name": "E-Shop Travel Workshop",
+		"description": "Graphic redesign and migration of a Prestashop 1.6 site to Prestashop 1.7. Implementation of a suitcase customization module.",
+		"thumbnail": "/img/ateliervoyage.jpg",
+		"external_link": "/",
+		"stack": ["prestashop", "javascript"]
+	},
+	{
+		"name": "E-Commerce Hannahpad",
+		"description": "Maintenance, optimization of site performance. Added new features. Maintenance of a dedicated OVH server.",
+		"thumbnail": "/img/hannahpad.jpg",
+		"external_link": "https://hannahpad.fr/",
+		"stack": ["prestashop", "javascript", "cloudflare", "photoshop"],
+		"homepage_position": 10
+	},
+	{
+		"name": "E-Commerce Popart Piercing",
+		"description": "Realization of a safe-to-measure E-Commerce site under the Prestashop 1.7 CMS. Responsive Mobile/Tablet/Desktop. Maintains site performance.",
+		"thumbnail": "/img/popartpiercing.jpg",
+		"external_link": "https://popartpiercing.com",
+		"stack": ["prestashop", "javascript", "cloudflare", "photoshop", "illustrator"]
+	},
+	{
+		"name": "Site Paleordovi",
+		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"thumbnail": "/img/paleordovie.jpg",
+		"external_link": "https://paleordovi.fr",
+		"stack": ["wordpress", "divi", "illustrator", "indesign"]
+	},
+	{
+		"name": "Orzale Sport",
+		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"thumbnail": "/img/orzale.jpg",
+		"link": "orzale",
+		"stack": ["prestashop", "illustrator", "photoshop", "indesign", "after-effect", "premiere-pro"],
+		"homepage_position": 3
+	}
+]

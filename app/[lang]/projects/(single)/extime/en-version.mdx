@@ -1,0 +1,163 @@
+import Stack from "../stack"
+import Image from "next/image"
+import Link from "next/link"
+import Breadcrumb from "../breadcrumb"
+import ExtimeHomepage from "./img/extime-homepage.jpg"
+
+<Breadcrumb parent="Projects" name="Extime.com" />
+
+# Extime.com
+
+<Image src="/img/extime-mock-up.png" width={800} height={0} />
+
+This one is like my baby. I coded the first line in 2021 and I am still working on this project. This is the project that taught me everything about Next.js from version 11 to version 14 nowadays. It has brought me to 2 React.js conferences and 3 Next.js conferences because I always want to make this app as optimized and up-to-date as possible. This app is a mixture of internal APIs (flight search, parking search and reservation, offers search, authentication) and Strapi CMS for managing content. I also learned a lot about Strapi by developing some private plugins for our needs.
+
+## My stack for this project
+
+<Stack data={["nextjs", "strapi", "tailwindcss", "azure", "docker"]} />
+
+The app allows customers to order products from the duty-free before their flight. They need to enter their flight information, and the catalog will be updated based on the availability of products at the flight terminal. Depending on the final flight destination, displayed prices will vary, either excluding or including taxes, or with different promotions based on the customer's departure terminal. Customers can also book a parking spot according to their flight information.
+
+<Link href="https://extime.com/en" target="_blank">
+	Visit the marketplace
+</Link>
+
+Since we succeed to redesign the <Link href="https://www.parisaeroport.fr/">Paris Aéroports website homepage</Link> with our stack, we decided to based the Extime marketplace on Next.js and Tailwind CSS. Tailwind contribute to reduce our integration time. Since 2021, I only work with on additional frontend developer but I developed 95% of the Extime features, components, animations. I was feeling like it was a big amount of work for a single developer but my product owner did a awesome job by organizing my tasks every two weeks (duration of a sprint).
+
+<Image src={ExtimeHomepage} width={1000} height={0} />
+
+Design was an aspect because we were looking the pixel perfect integration but we had much more technical subjects more about Next.js and the backend features and performance because it's a very high trafic website and subjects to be the target of hackers.
+
+We aimed for the website to have low API consumption. There are more than 250 pages in French and English statically built using the incremental static website generation. This defers the API calls at build time, and we use Strapi webhooks and Next.js API revalidation to update the page on demand. The system is still based on the pages app, but we are currently working on an app directory refactoring.
+
+Here is an example of revalidation page api reading webhook body
+
+<code>/api/revalidate</code>
+```javascript import {(revalidateEntireApp, revalidateModelStaticFile, revalidatePagesByType, revalidateSinglePage)} from "@helpers/revalidation" import {logger} from "@utils/logger" import {(NextApiRequest, NextApiResponse)} from "next"
+
+export default async function handlerRevalidation(req: NextApiRequest, res: NextApiResponse) {
+	if (req.method === "POST") {
+		const { event, query } = req.body
+		if (event === "trigger-test") {
+			if (query === "revalidate=full") {
+				await revalidateEntireApp(res, "REVALIDATE_FULL")
+			} else {
+				logger.info("TRIGGER_TEST:RECEIVED")
+			}
+		} else if (event === "app-start") {
+			await revalidateEntireApp(res, "REVALIDATE_START")
+		} else {
+			const { model, entry } = req.body
+			switch (true) {
+				case model === "page":
+					await revalidateSinglePage(entry, res)
+					break
+				case model === "contact" || model === "offer" || model === "brand":
+					await revalidatePagesByType(model, entry, res)
+					break
+				default:
+					await revalidateModelStaticFile(model, entry, res)
+			}
+		}
+		return res.json({ revalidated: true })
+	}
+	return res.json({ revalidated: false })
+}
+```
+
+<code>revalidateSinglePage()</code>
+
+```javascript import {(fetchAPI, getStrapiDataFromJSON)} from "@helpers/app/strapi" import {logger} from "@utils/logger" import {NextApiResponse} from "next" import {StrapiRedirection} from "types"
+export default async function revalidateSinglePage(entry: any, res: NextApiResponse) {
+	try {
+		const { relative_url, locale } = entry
+
+		logger.info(`SINGLE_PAGE_REVALIDATE:START /${locale}${relative_url}`)
+		await res.revalidate(`/${locale}${relative_url}`) // on revalide la page
+		logger.info(`SINGLE_PAGE_REVALIDATE:DONE  /${locale}${relative_url}`)
+
+		setTimeout(async () => {
+			const redirections = await getStrapiDataFromJSON("redirections", locale, false)
+			const foundPageToRemove = redirections.data.find((redirection: StrapiRedirection) => redirection.attributes.destination === relative_url && !redirection.attributes.revalidated)
+			if (foundPageToRemove) {
+				const oldUrl = `/${locale}${foundPageToRemove.attributes.source}`
+
+				logger.info(`OLD_PAGE_REMOVE:START ${oldUrl}`)
+				await res.revalidate(oldUrl)
+				logger.info(`OLD_PAGE_REMOVE:DONE  ${oldUrl}`)
+
+				await fetchAPI(
+					`/redirections/${foundPageToRemove.id}`,
+					locale,
+					{
+						data: {
+							revalidated: true,
+						},
+					},
+					false,
+					"PUT"
+				)
+				logger.info(`OLD_PAGE_CREATE_REDIRECTION:DONE ${oldUrl}`)
+			}
+		}, 5000)
+	} catch (err) {
+		logger.error(JSON.stringify(err))
+	}
+}
+```
+
+The main challenge with revalidation is that the app runs on three server instances. When we trigger revalidation through webhook events, we have to revalidate all three instances. For this, we use <Link href="https://azure.microsoft.com/en-us/products/service-bus/" target="_blank">Azure Service bus</Link> to received message from Strapi and dispatch these to the Next.js app. To listen the received message, we add to develop a small custom <code>server.js</code> file.
+
+<code>connectAzureBus() function into server.js file</code>
+
+```
+const {(ServiceBusClient, ServiceBusAdministrationClient)} = require("@azure/service-bus")
+const axios = require("axios") const {getServerUrl} = require("../../utils/get-server-url")
+const {logger} = require("../../utils/logger")
+
+async function connectAzureBus() {
+const { serverUrl } = getServerUrl()
+
+    const connectionString = process.env.SERVICE_BUS_CONNECTION_STRING_APP_LISTEN
+    const topicName = process.env.SERVICE_BUS_TOPIC_NAME
+    const subscriptionName = `mkpl_app_${Date.now()}`
+
+    const serviceBusAdministrationClient = new ServiceBusAdministrationClient(connectionString)
+
+    await serviceBusAdministrationClient.createSubscription(topicName, subscriptionName, { autoDeleteOnIdle: "PT5M" }).catch(error => {
+    	logger.error(JSON.stringify(error))
+    })
+    const sbClient = new ServiceBusClient(connectionString)
+
+    const receiver = sbClient.createReceiver(topicName, subscriptionName)
+
+    const myMessageHandler = async messageReceived => {
+    	const { body } = messageReceived
+    	logger.info(`AZURE_BUS ${JSON.stringify(body)}`)
+    	await axios.post(`${serverUrl}/api/webhook/revalidate`, body, {
+    		headers: {
+    			Authorization: `Bearer ${process.env.APP_API_KEY}`,
+    		},
+    	})
+    }
+
+    const myErrorHandler = async error => {
+    	logger.error(JSON.stringify(error))
+    }
+
+    receiver.subscribe({
+    	processMessage: myMessageHandler,
+    	processError: myErrorHandler,
+    })
+
+}
+
+module.exports = {
+connectAzureBus,
+}
+
+```
+
+### Contributions to Open Source Strapi plugins
+
+Futhermore, I also do some contributions on two Strapi plugin <Link href="https://github.com/mattmilburn/strapi-plugin-preview-button/pull/62" target="_blank">strapi-plugin-preview-button</Link> and <Link href="https://github.com/lautr/strapi-plugin-duplicate-button/pull/4" target="_blank">strapi-plugin-duplicate-button</Link> because when I was using these plugins I discovered some issue and missing features for our needs and the community. My pull requests are attached to the links. These are small contributions but I am proud of these. I wish I can do more open-source contribution in the futur but I am missing time right now.

@@ -1,0 +1,22 @@
+[
+	{
+		"id": 0,
+		"title": "Accueil",
+		"href": "/fr#home"
+	},
+	{
+		"id": 1,
+		"title": "Présentation",
+		"href": "/fr#about"
+	},
+	{
+		"id": 2,
+		"title": "Projets",
+		"href": "/fr/projects"
+	},
+	{
+		"id": 3,
+		"title": "Contact",
+		"href": "/fr#contact"
+	}
+]
