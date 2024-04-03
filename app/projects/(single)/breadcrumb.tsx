@@ -5,7 +5,7 @@ const pages = [{ name: "Projects", href: "/projects", current: false }]
 
 export default function Breadcrumb({ parent, name }: { parent: string; name: string }) {
 	return (
-		<nav className="flex" aria-label="Breadcrumb">
+		<nav className="hidden md:flex" aria-label="Breadcrumb">
 			<ol role="list" className="flex items-center space-x-4 list-none p-0 mx-0">
 				<li>
 					<div>

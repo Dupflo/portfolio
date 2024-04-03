@@ -25,9 +25,9 @@ const Contact = ({ data }: any) => {
 			<Title>{data.title}</Title>
 			<div>
 				<p className="mt-10 mb-5 text-3xl font-semibold text-slate-700">For the Design Engineer position</p>
-				<div className="grid grid-cols-2 gap-5">
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<CodeBracketIcon className="text-slate-300 w-12 h-12" />
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<CodeBracketIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I love to design — in code</h3>
 							<p>
@@ -36,8 +36,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<MagnifyingGlassCircleIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<MagnifyingGlassCircleIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am fanatical about polish</h3>
 							<p>
@@ -46,8 +46,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<BookOpenIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<BookOpenIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I deep dive</h3>
 							<p>
@@ -56,8 +56,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<WrenchScrewdriverIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<WrenchScrewdriverIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I love to learn new tools</h3>
 							<p>
@@ -66,8 +66,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<ArrowsPointingOutIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<ArrowsPointingOutIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I live on the bleeding edge</h3>
 							<p>
@@ -76,15 +76,15 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<LightBulbIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<LightBulbIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am a self-starter</h3>
 							<p>I fill my backlog at Paris Airports myself when my sprint tasks are done, I am someone who takes initiative. When I have concept ideas or something to try, I had to pursue it before working on something else.</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 col-span-full border-slate-200 rounded-lg flex space-x-4">
-						<AcademicCapIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-2 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<AcademicCapIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am a great teacher</h3>
 							<p>
@@ -104,8 +104,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 col-span-full border-slate-200 rounded-lg flex space-x-4">
-						<ClipboardDocumentIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-2 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<ClipboardDocumentIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am good at breaking down projects</h3>
 							<p>
@@ -118,9 +118,9 @@ const Contact = ({ data }: any) => {
 			</div>
 			<div>
 				<p className="mt-10 mb-5 text-3xl font-semibold text-slate-700">For the Staff Software Engineer position</p>
-				<div className="grid grid-cols-2 gap-5">
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<UsersIcon className="text-slate-300 w-12 h-12" />
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<UsersIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I like to pair on problems.</h3>
 							<p>
@@ -129,8 +129,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<ArrowTrendingUpIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<ArrowTrendingUpIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I hold people to a high standard, and inspire them to do their best work.</h3>
 							<p>
@@ -139,8 +139,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<MagnifyingGlassCircleIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<MagnifyingGlassCircleIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I fanatical about polish </h3>
 							<p>
@@ -149,8 +149,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<FireIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<FireIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I miss when software used to be fast,</h3>
 							<p>
@@ -159,8 +159,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<PuzzlePieceIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<PuzzlePieceIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am energized by unfamiliar territory.</h3>
 							<p>
@@ -169,8 +169,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<PencilSquareIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<PencilSquareIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am great writer.</h3>
 							<p>
@@ -182,8 +182,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<MapIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<MapIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I&apos;m good at breaking down projects. </h3>
 							<p>
@@ -192,8 +192,8 @@ const Contact = ({ data }: any) => {
 							</p>
 						</div>
 					</div>
-					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
-						<HeartIcon className="text-slate-300 w-12 h-12" />
+					<div className="border-2 p-3 md:p-5 border-slate-200 rounded-lg flex gap-x-4">
+						<HeartIcon className="text-slate-300 w-12 h-12 md:block hidden" />
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I love great design.</h3>
 							<p>
