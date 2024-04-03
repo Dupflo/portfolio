@@ -21,7 +21,7 @@ import Title from "./Elements/Title"
 
 const Contact = ({ data }: any) => {
 	return (
-		<section id="contact" className="scroll-mt-[80px] px-5 py-20 lg:px-10 xl:px-20  text-slate-700">
+		<section id="hire" className="scroll-mt-[80px] px-5 py-20 lg:px-10 xl:px-20  text-slate-700">
 			<Title>{data.title}</Title>
 			<div>
 				<p className="mt-10 mb-5 text-3xl font-semibold text-slate-700">For the Design Engineer position</p>

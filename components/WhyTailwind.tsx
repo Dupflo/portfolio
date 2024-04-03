@@ -2,7 +2,7 @@ import Title from "./Elements/Title"
 
 export default function WhyTailwind() {
 	return (
-		<div>
+		<section id="why">
 			<div className="space-y-5 scroll-mt-[80px] px-5 py-20 lg:px-10 xl:px-20 bg-slate-100 text-slate-700">
 				<Title>{`<span class="underblack">Why</span> Tailwind Labs ?`}</Title>
 				<p>
@@ -21,6 +21,6 @@ export default function WhyTailwind() {
 				</p>
 				<p>Thank you for considering me.</p>
 			</div>
-		</div>
+		</section>
 	)
 }
