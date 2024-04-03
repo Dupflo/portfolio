@@ -7,7 +7,7 @@ import Youtube from "../assets/svg/youtube-icon.svg"
 
 const Footer = () => {
 	return (
-		<footer className="bg-white sticky top-0 z-10 lg:px-10 xl:px-24">
+		<footer className="bg-white sticky top-0 z-10 lg:px-10 xl:px-20">
 			<div className="container p-5 z-10  mx-auto lg:flex space-y-5 lg:space-y-0 items-baseline justify-center">
 				<ul className="flex flex-wrap justify-between tracking-wider font-medium ">
 					<li className="px-2 ">

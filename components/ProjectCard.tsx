@@ -8,7 +8,7 @@ export default function ProjectCard({ project, locale }: any) {
 		<div className="w-full h-full flex flex-col justify-start mx-auto rounded-xl bg-white">
 			<div className="relative w-full h-[200px]">
 				{project.link && (
-					<Link href={`/${locale}/projects/${project.link}`}>
+					<Link href={`/projects/${project.link}`}>
 						<Image src={project.thumbnail} alt={project.name} className="object-cover object-center" fill />
 					</Link>
 				)}
@@ -25,10 +25,7 @@ export default function ProjectCard({ project, locale }: any) {
 				</div>
 				<LightStack data={project.stack} />
 				{project.link && (
-					<Link
-						href={`/${locale}/projects/${project.link}`}
-						className="flex cursor-pointer items-center justify-center space-x-2 mt-2 w-full text-center rounded-md bg-slate-800  py-2 text-slate-100 hover:bg-slate-800 hover:shadow-md duration-75"
-					>
+					<Link href={`/projects/${project.link}`} className="flex cursor-pointer items-center justify-center space-x-2 mt-2 w-full text-center rounded-md bg-slate-800  py-2 text-slate-100 hover:bg-slate-800 hover:shadow-md duration-75">
 						<BookOpenIcon className="w-5" />
 						<span>{locale === "en" ? "Read more" : "En savoir plus"}</span>
 					</Link>

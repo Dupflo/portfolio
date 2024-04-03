@@ -9,8 +9,12 @@ import ProjectCard from "./ProjectCard"
 const Projects = ({ data, lang }: any) => {
 	return (
 		<section id="projects" className="scroll-mt-[80px] py-20 bg-slate-100 overflow-hidden">
-			<div className="px-5 lg:px-10 xl:px-24 lg:py-5">
+			<div className="px-5 lg:px-10 xl:px-20 lg:py-5">
 				<Title>{data.title}</Title>
+				<p className="my-10 text-lg text-slate-700 text-center">
+					Here is a list of a couple of projects I am proud of, which I have selected to showcase the different aspects and versatility of my profile. I write about some of them to keep a record, remember where I started from, and how they
+					contributed to shaping the developer I am today. I hope you will quickly recognize the different technologies and that it will help you choose some projects to read.
+				</p>
 				<Swiper modules={[Pagination, Scrollbar, A11y, Navigation]} navigation grabCursor pagination={{ clickable: true }} spaceBetween={25} slidesPerView="auto">
 					{data.items
 						.filter((project: any) => project.homepage_position)

@@ -4,7 +4,7 @@
 		"description": "Development of an application for managing personal protective equipment. Search for flights, parking, sales funnel.",
 		"thumbnail": "/img/extime.jpg",
 		"link": "extime",
-		"stack": ["nextjs", "strapi", "tailwindcss", "azure", "docker"],
+		"stack": ["nextjs", "strapi", "tailwindcss", "jest", "azure", "docker"],
 		"homepage_position": 1
 	},
 	{

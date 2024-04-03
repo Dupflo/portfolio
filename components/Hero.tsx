@@ -15,12 +15,13 @@ import TechItem from "../components/TechItem"
 
 const Hero = ({ data }: any) => {
 	return (
-		<div id="home" className="scroll-mt-[80px] px-5 pt-3 pb-5 lg:py-16 lg:px-10 xl:px-24 text-slate-800 p-6  mx-auto md:flex flex-wrap flex-1 justify-between items-center overflow-hidden">
+		<div id="home" className="scroll-mt-[80px] px-5 pt-3 pb-5 lg:py-16 lg:px-10 xl:px-20 text-slate-800 p-6  mx-auto md:flex flex-wrap flex-1 justify-between items-center overflow-hidden">
 			<div className="md:w-3/5 flex">
 				<Heading first={data.word1} second={data.word2} third={data.word3} />
 			</div>
 			<div className="md:w-2/5 flex flex-col translate-x-[100vw] animate-reveal-to-left animation-delay-1000">
 				<h1 className="text-4xl md:text-4xl lg:text-5xl flex items-end font-bold py-6">
+					<span className="mr-3">I&apos;m</span>
 					<Swiper
 						effect={"flip"}
 						grabCursor={true}
@@ -58,7 +59,7 @@ const Hero = ({ data }: any) => {
 							<Prestashop className="h-full w-full relative top-3" />
 						</SwiperSlide>
 					</Swiper>
-					<span>{data.title}</span>
+					<span>developer</span>
 				</h1>
 				<div className="tracking-wider border-l lg:ml-1.5">
 					<TechItem className="hover:bg-blue-500 hover:text-white">React.JS</TechItem>

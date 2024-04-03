@@ -12,6 +12,7 @@ import Heroku from "@/assets/svg/heroku-icon.svg"
 import Illustrator from "@/assets/svg/illustrator.svg"
 import InDesign from "@/assets/svg/indesign.svg"
 import Javascript from "@/assets/svg/javascript.svg"
+import Jest from "@/assets/svg/jest-svgrepo-com.svg"
 import Koa from "@/assets/svg/koa.svg"
 import Kubernetes from "@/assets/svg/kubernetes-icon.svg"
 import NextJs from "@/assets/svg/nextjs-icon.svg"
@@ -104,6 +105,8 @@ const LightStack = ({ data }: StackProps) => {
 				return <AfterEffect className="w-8" />
 			case "premiere-pro":
 				return <PremierePro className="w-8" />
+			case "jest":
+				return <Jest className="w-7" />
 			default:
 				return []
 		}

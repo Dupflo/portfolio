@@ -1,15 +1,17 @@
 import Stack from "@/components/Stack"
-import About from "../../components/About"
-import Contact from "../../components/Contact"
-import Hero from "../../components/Hero"
-import Projects from "../../components/Projects"
+import WhyTailwind from "@/components/WhyTailwind"
+import About from "../components/About"
+import Contact from "../components/Contact"
+import Hero from "../components/Hero"
+import Projects from "../components/Projects"
 import { getDictionary } from "./dictionaries"
 
 type Props = {
 	params: { lang: string }
 }
 
-export default async function Page({ params: { lang } }: Props) {
+export default async function Page() {
+	const lang = "en"
 	const data = await getDictionary(lang, "home")
 	const projets = await getDictionary(lang, "projects")
 
@@ -20,6 +22,7 @@ export default async function Page({ params: { lang } }: Props) {
 			<Stack data={data.stack} />
 			<Projects data={{ ...data.projects, items: projets }} lang={lang} />
 			<Contact data={data.contact} />
+			<WhyTailwind />
 		</section>
 	)
 }

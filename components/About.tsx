@@ -8,7 +8,7 @@ import Image from "next/image"
 
 const About = ({ name, nickname, data }: any) => {
 	return (
-		<section id="about" className="scroll-mt-[80px] lg:px-10 xl:px-24 lg:py-28 py-10 bg-slate-100 flex flex-col-reverse lg:flex-row">
+		<section id="about" className="scroll-mt-[80px] lg:px-10 xl:px-20 lg:py-28 py-10 bg-slate-100 flex flex-col-reverse lg:flex-row">
 			<div className="mx-auto bg-white shadow-lg lg:rounded-l-lg px-5 pt-5 pb-10 text-gray-800 w-full lg:w-8/12">
 				<div className="w-full pt-1 pb-5">
 					<div className="overflow-hidden relative z-10 rounded-full w-40 h-40 -mt-16 mx-auto shadow-lg">

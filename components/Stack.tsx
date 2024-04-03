@@ -7,7 +7,7 @@ import Title from "./Elements/Title"
 
 const Stack = ({ data }: any) => {
 	return (
-		<div className="py-20 px-5 lg:px-10 xl:px-24">
+		<div className="py-20 px-5 lg:px-10 xl:px-20">
 			<Title>{data.title}</Title>
 			<div className="grid grid-cols-1 gap-10 lg:grid-cols-5 items-center justify-center">
 				<a href="https://nextjs.org/" className="duration-200 md:hover:scale-110" rel="noreferrer" target="_blank">

@@ -1,0 +1,22 @@
+[
+	{
+		"id": 1,
+		"title": "About me",
+		"href": "/en#about"
+	},
+	{
+		"id": 3,
+		"title": "My Projects",
+		"href": "/en/projects"
+	},
+	{
+		"id": 3,
+		"title": "Why To Hire Me?",
+		"href": "/en/projects"
+	},
+	{
+		"id": 3,
+		"title": "Why Tailwind Labs ?",
+		"href": "/en/projects"
+	}
+]

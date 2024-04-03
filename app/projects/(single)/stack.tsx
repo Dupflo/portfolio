@@ -12,6 +12,7 @@ import Gatsby from "@/assets/svg/gatsby.svg"
 import Heroku from "@/assets/svg/heroku.svg"
 import Illustrator from "@/assets/svg/illustrator.svg"
 import InDesign from "@/assets/svg/indesign.svg"
+import Jest from "@/assets/svg/jest-svgrepo-com.svg"
 import NextJs from "@/assets/svg/nextjs.svg"
 import Node from "@/assets/svg/nodejs-icon.svg"
 import Nuxt from "@/assets/svg/nuxt.svg"
@@ -104,6 +105,8 @@ const Stack = ({ data }: StackProps) => {
 				return [<AfterEffect className="w-20" />, "https://www.adobe.com"]
 			case "premiere-pro":
 				return [<PremierePro className="w-20" />, "https://www.adobe.com"]
+			case "jest":
+				return [<Jest className="w-16" />, "https://jestjs.io"]
 			default:
 				return []
 		}

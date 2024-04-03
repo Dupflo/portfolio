@@ -1,173 +1,209 @@
 "use client"
-import cn from "classnames"
-import { Form, Formik } from "formik"
-import { toast } from "react-toastify"
-import * as Yup from "yup"
+import {
+	AcademicCapIcon,
+	ArrowTrendingUpIcon,
+	ArrowsPointingOutIcon,
+	BookOpenIcon,
+	ClipboardDocumentIcon,
+	CodeBracketIcon,
+	FireIcon,
+	HeartIcon,
+	LightBulbIcon,
+	MagnifyingGlassCircleIcon,
+	MapIcon,
+	PencilSquareIcon,
+	PuzzlePieceIcon,
+	UsersIcon,
+	WrenchScrewdriverIcon,
+} from "@heroicons/react/24/outline"
+import Link from "next/link"
 import Title from "./Elements/Title"
 
 const Contact = ({ data }: any) => {
 	return (
-		<section id="contact" className="scroll-mt-[80px] px-5 py-20 lg:px-10 xl:px-24">
-			<Formik
-				initialValues={{ firstName: "", lastName: "", company: "", email: "", message: "" }}
-				validationSchema={Yup.object({
-					firstName: Yup.string().max(15, data.form.firstName.warning).required(data.form.firstName.error),
-					lastName: Yup.string().max(20, data.form.lastName.warning).required(data.form.lastName.error),
-					company: Yup.string().max(20, data.form.company.warning),
-					email: Yup.string().email(data.form.email.warning).required(data.form.email.error),
-					message: Yup.string().max(500, data.form.message.warning).required(data.form.message.error),
-				})}
-				onSubmit={async (values, { resetForm }) => {
-					const response = await fetch("/api/contact", {
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json",
-						},
-						body: JSON.stringify(values),
-					})
-
-					if (response.ok) {
-						toast.success(data.form.success, {
-							position: "bottom-center",
-							autoClose: 5000,
-							hideProgressBar: false,
-							closeOnClick: true,
-							pauseOnHover: true,
-							draggable: false,
-							progress: undefined,
-						})
-						resetForm()
-					}
-				}}
-			>
-				{formik => (
-					<>
-						<Title>{data.title}</Title>
-						<Form>
-							<div className="flex flex-wrap flex-col lg:flex-row w-full justify-between lg:space-x-8">
-								<div className="flex-1">
-									<div className="flex flex-wrap -mx-3 mb-6">
-										<div className="w-full lg:w-1/2 px-3 mb-6 lg:mb-0">
-											<label className="block uppercase tracking-wide text-slate-800 text-xs font-bold mb-2" htmlFor="firstName">
-												{data.form.firstName.label} *
-											</label>
-											<input
-												className={cn(
-													formik.touched.firstName && formik.errors.firstName ? "border-red-500 mb-0.5" : "border-slate-100",
-													"appearance-none block w-full bg-slate-100 text-slate-800 border  rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-slate-500"
-												)}
-												id="firstName"
-												name="firstName"
-												type="text"
-												placeholder={data.form.firstName.placeholder}
-												onChange={formik.handleChange}
-												onBlur={formik.handleBlur}
-												value={formik.values.firstName}
-											/>
-											{formik.touched.firstName && formik.errors.firstName ? <p className="text-red-500 text-xs italic">{formik.errors.firstName}</p> : null}
-										</div>
-										<div className="w-full lg:w-1/2 px-3">
-											<label className="block uppercase tracking-wide text-slate-800 text-xs font-bold mb-2" htmlFor="lastName">
-												{data.form.lastName.label} *
-											</label>
-											<input
-												className={cn(
-													formik.touched.lastName && formik.errors.lastName ? "border-red-500 mb-0.5" : "border-slate-100",
-													"appearance-none block w-full bg-slate-100 text-slate-800 border  rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-slate-500"
-												)}
-												id="lastName"
-												name="lastName"
-												type="text"
-												placeholder={data.form.lastName.placeholder}
-												onChange={formik.handleChange}
-												onBlur={formik.handleBlur}
-												value={formik.values.lastName}
-											/>
-											{formik.touched.lastName && formik.errors.lastName ? <p className="text-red-500 text-xs italic">{formik.errors.lastName}</p> : null}
-										</div>
-									</div>
-									<div className="flex flex-wrap -mx-3 mb-6">
-										<div className="w-full px-3">
-											<label className="block uppercase tracking-wide text-slate-800 text-xs font-bold mb-2" htmlFor="company">
-												{data.form.company.label}
-											</label>
-											<input
-												className={cn(
-													formik.touched.company && formik.errors.company ? "border-red-500 mb-0.5" : "border-slate-100",
-													"appearance-none block w-full bg-slate-100 text-slate-800 border  rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-slate-500"
-												)}
-												id="grid-last-name"
-												name="company"
-												type="text"
-												placeholder={data.form.company.placeholder}
-												onChange={formik.handleChange}
-												onBlur={formik.handleBlur}
-												value={formik.values.company}
-											/>
-										</div>
-										{formik.touched.company && formik.errors.company ? <p className="text-red-500 text-xs italic">{formik.errors.company}</p> : null}
-									</div>
-									<div className="flex flex-wrap -mx-3 mb-6">
-										<div className="w-full px-3">
-											<label className="block uppercase tracking-wide text-slate-800 text-xs font-bold mb-2" htmlFor="email">
-												{data.form.email.label} *
-											</label>
-											<input
-												className={cn(
-													formik.touched.email && formik.errors.email ? "border-red-500 mb-0.5" : "border-slate-100",
-													"appearance-none block w-full bg-slate-100 text-slate-800 border  rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-slate-500"
-												)}
-												id="email"
-												name="email"
-												type="email"
-												placeholder={data.form.email.placeholder}
-												onChange={formik.handleChange}
-												onBlur={formik.handleBlur}
-												value={formik.values.email}
-											/>
-											{formik.touched.email && formik.errors.email ? <p className="text-red-500 text-xs italic">{formik.errors.email}</p> : null}
-										</div>
-									</div>
-								</div>
-								<div className="flex-1">
-									<div className="flex flex-wrap -mx-3 mb-6">
-										<div className="w-full px-3">
-											<label className="block uppercase tracking-wide text-slate-800 text-xs font-bold mb-2" htmlFor="grid-password">
-												{data.form.message.label} *
-											</label>
-											<textarea
-												className={cn(
-													formik.touched.message && formik.errors.message ? "border-red-500 mb-0.5" : "border-slate-100",
-													"no-resize h-64 appearance-none block w-full bg-slate-100 text-slate-800 border  rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-slate-500 resize-none"
-												)}
-												id="message"
-												name="message"
-												placeholder={data.form.message.placeholder}
-												onChange={formik.handleChange}
-												onBlur={formik.handleBlur}
-												value={formik.values.message}
-											></textarea>
-											{formik.touched.message && formik.errors.message ? <p className="text-red-500 text-xs italic">{formik.errors.message}</p> : null}
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="lg:flex lg:items-center justify-center">
-								<button className="w-full lg:w-2/12 shadow bg-slate-800 hover:bg-slate-400 focus:shadow-outline focus:outline-none text-white font-semibold uppercase py-2 px-10 rounded" type="submit" disabled={formik.isSubmitting}>
-									{formik.isSubmitting ? (
-										<svg className="animate-spin mx-auto h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-											<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-											<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-										</svg>
-									) : (
-										data.form.submit
-									)}
-								</button>
-							</div>
-						</Form>
-					</>
-				)}
-			</Formik>
+		<section id="contact" className="scroll-mt-[80px] px-5 py-20 lg:px-10 xl:px-20  text-slate-700">
+			<Title>{data.title}</Title>
+			<div>
+				<p className="mt-10 mb-5 text-3xl font-semibold text-slate-700">For the Design Engineer position</p>
+				<div className="grid grid-cols-2 gap-5">
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<CodeBracketIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I love to design — in code</h3>
+							<p>
+								I developed this portfolio without any mockup. Before Paris Airports and Anywhere, I rarely worked with mockup support, even though I&apos;m happy to have them now. However, I can manage without them and develop a
+								decent graphic app.
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<MagnifyingGlassCircleIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I am fanatical about polish</h3>
+							<p>
+								Working for three years on <Link href="/projects/extime">Extime.com</Link> taught me to strive for pixel perfection. I also focused on refining component organization to avoid repetition by using semantic class names.
+								When I use a comprehensive Tailwind UI component, I tend to customize it extensively to achieve a result very close to the new Catalyst UI kit.{" "}
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<BookOpenIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I deep dive</h3>
+							<p>
+								Even if 20% of knowledge is enough to do 80% of the job, I like to delve deeper into concepts that fascinate me in order to develop real expertise. This how I am feeling about React.js et Next.js, I want to be
+								unbeatable if these topics were in the trivial pursuit.
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<WrenchScrewdriverIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I love to learn new tools</h3>
+							<p>
+								I enjoy trying out new tools as long as they are useful for the client. Using Tailwind UI is awesome, and I&apos;m eager to learn more about the Catalyst UI kit. I&apos;m also feeling pretty excited about becoming a
+								better Rust developer. I&apos;m not closed off to reconsidering some of my works and decisions if there&apos;s something better than what I propose, so I&apos;m always open reconsider it.
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<ArrowsPointingOutIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I live on the bleeding edge</h3>
+							<p>
+								As I am the only remaining frontend developer on the Paris Airports Extime project, I am always looking for new features within our stack (Next.js, React.js, Tailwind, and Strapi) because it&apos;s my responsibility to
+								leave a well-accomplished project when I eventually leave for your team.
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<LightBulbIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I am a self-starter</h3>
+							<p>I fill my backlog at Paris Airports myself when my sprint tasks are done, I am someone who takes initiative. When I have concept ideas or something to try, I had to pursue it before working on something else.</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 col-span-full border-slate-200 rounded-lg flex space-x-4">
+						<AcademicCapIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I am a great teacher</h3>
+							<p>
+								I am teaching web development on my{" "}
+								<Link href="https://www.youtube.com/user/Dupzik" className="underline font-semibold" target="_blank">
+									YouTube channel : FloDev
+								</Link>
+								. I also supported{" "}
+								<Link href="https://olivia-garlantezec.fr/" className="underline font-semibold" target="_blank">
+									my partner
+								</Link>{" "}
+								in her retraining as a UI UX Designer. I teached{" "}
+								<Link href="https://www.max-webfolio.com/en" className="underline font-semibold" target="_blank">
+									my little brother
+								</Link>{" "}
+								the minimum skills to pretend get a spot on the only Multimedia Engineer Degree program school (he succeeded).{" "}
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 col-span-full border-slate-200 rounded-lg flex space-x-4">
+						<ClipboardDocumentIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I am good at breaking down projects</h3>
+							<p>
+								I have a web agency with my partner called Anywwwhere where I am working and managing other freelances and developers on Saas projects built with Next.js and others Wordpress/Prestashop projects. Since it’s a young
+								company, I am speaking to the custom and trying to identify the needs to defined how our skills can perfectly fit the customer project.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<p className="mt-10 mb-5 text-3xl font-semibold text-slate-700">For the Staff Software Engineer position</p>
+				<div className="grid grid-cols-2 gap-5">
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<UsersIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I like to pair on problems.</h3>
+							<p>
+								Because I don&apos;t know everything, I am often by myself especially in my current position but I admitted that I never learn more than my 7 months in Canada at Absolunet, wokring inside a 10 developers team. It was
+								amazing.
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<ArrowTrendingUpIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I hold people to a high standard, and inspire them to do their best work.</h3>
+							<p>
+								I like to give people a chance. I am more hostile towards those who think they know everything and make you feel inadequate. I prefer working with junior developers or people who are self-taught rather than attending
+								five years study schools (like me haha) and who are eager to prove themselves.
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<MagnifyingGlassCircleIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I fanatical about polish </h3>
+							<p>
+								This is for what I am not a big fan of rushing project. I know for exemple I rushed the realization of this minisite, and when I will submit it, I won&apos;t be perfectly satisfied of this. I always tried to be the
+								cleaner possible from the code to the pull request description
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<FireIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I miss when software used to be fast,</h3>
+							<p>
+								I am a fanatic of Next.js and their caching system. Even when I have to jump on Wordpress project, I tried to use the fastest technologies available, less plugins. I discovered Oxygen Builder (a theme based on React)
+								and I a loving using it for doing Wordpress Website because it&apos;s crazy fast and I can reach de 100 perf score on Google Ligthouse
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<PuzzlePieceIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I am energized by unfamiliar territory.</h3>
+							<p>
+								I really enjoyed when I had to explore the strapi plugin code base to find a way to feat our needs at Paris Airports. At the same time, it dive me to contribute to improve the plugin because I identity it like a need
+								that can serve the community. I was really happy when the plugin authors merged my PRs.
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<PencilSquareIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I am great writer.</h3>
+							<p>
+								In French and English. Even if I am perfectible, I like to write my ideas and presents my concept with the most easy words to understand. I am someone who thoroughly enjoys simplifying abstract concepts. I sometimes
+								write somme article on{" "}
+								<Link href="https://anywwwhere.com/blog" className="underline" target="_blank">
+									Anywwwhere website.
+								</Link>
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<MapIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I&apos;m good at breaking down projects. </h3>
+							<p>
+								When I&apos;m on a call with a client and they describe their ideal project with all the features they want because they believe they need them, I redefine the priorities to steer them towards the best MVP (Minimum
+								Viable Product) within a 2-3 month timeframe.
+							</p>
+						</div>
+					</div>
+					<div className="border-2 p-5 border-slate-200 rounded-lg flex space-x-4">
+						<HeartIcon className="text-slate-300 w-12 h-12" />
+						<div className="flex-1 space-y-1">
+							<h3 className="text-xl font-semibold">I love great design.</h3>
+							<p>
+								Because my partner is a UI/UX designer (and I&apos;m proud to have supported her), and she would kill me if I didn&apos;t show at least some interest in design. I&apos;ve often had to complete full website projects by
+								designing logos, mockups, and the site itself.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 	)
 }
