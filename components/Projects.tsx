@@ -15,8 +15,8 @@ const Projects = ({ data, lang }: any) => {
 					{data.items
 						.filter((project: any) => project.homepage_position)
 						.sort((a: any, b: any) => a.homepage_position - b.homepage_position)
-						.map((project: any) => (
-							<SwiperSlide key={project.id} lang={lang} className="max-w-xs  overflow-hidden text-slate-800 shadow-md duration-200 md:hover:scale-105 hover:shadow-xl  rounded-xl">
+						.map((project: any, index: number) => (
+							<SwiperSlide key={index} lang={lang} className="max-w-xs overflow-hidden text-slate-800 shadow-md duration-200 md:hover:scale-105 hover:shadow-xl  rounded-xl">
 								<ProjectCard project={project} locale={lang} />
 							</SwiperSlide>
 						))}

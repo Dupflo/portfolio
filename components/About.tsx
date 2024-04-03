@@ -59,7 +59,7 @@ const About = ({ name, nickname, data }: any) => {
 					</ul>
 				</div>
 				<div className="mx-auto text-center my-2">
-					<a href="/Florian_Dupuis_Resume.pdf" target="_blank" className="mt-2 p-3 rounded-md bg-slate-800  py-2 text-slate-100 hover:bg-slate-500 hover:shadow-md duration-75">
+					<a href="/uploads/Florian_Dupuis_Resume.pdf" target="_blank" className="mt-2 p-3 rounded-md bg-slate-800  py-2 text-slate-100 hover:bg-slate-500 hover:shadow-md duration-75">
 						{data.cta.title}
 					</a>
 				</div>

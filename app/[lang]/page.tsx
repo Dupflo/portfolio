@@ -5,7 +5,11 @@ import Hero from "../../components/Hero"
 import Projects from "../../components/Projects"
 import { getDictionary } from "./dictionaries"
 
-export default async function Page({ params: { lang }, searchParams }: { params: { lang: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
+type Props = {
+	params: { lang: string }
+}
+
+export default async function Page({ params: { lang } }: Props) {
 	const data = await getDictionary(lang, "home")
 	const projets = await getDictionary(lang, "projects")
 

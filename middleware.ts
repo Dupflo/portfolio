@@ -29,7 +29,7 @@ export function middleware(request: NextRequest) {
         [
             '/manifest.json',
             '/favicon.ico',
-        ].includes(pathname) || pathname.startsWith('/img/')
+        ].includes(pathname) || pathname.startsWith('/img/') || pathname.startsWith('/uploads/')
     )
         return
 
