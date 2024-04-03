@@ -19,7 +19,7 @@ import {
 import Link from "next/link"
 import Title from "./Elements/Title"
 
-const Contact = ({ data }: any) => {
+const WhyMe = ({ data }: any) => {
 	return (
 		<section id="hire" className="scroll-mt-[80px] px-5 py-20 lg:px-10 xl:px-20  text-slate-700">
 			<Title>{data.title}</Title>
@@ -41,8 +41,8 @@ const Contact = ({ data }: any) => {
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am fanatical about polish</h3>
 							<p>
-								Working for three years on <Link href="/projects/extime">Extime.com</Link> taught me to strive for pixel perfection. I also focused on refining component organization to avoid repetition by using semantic class names.
-								When I use a comprehensive Tailwind UI component, I tend to customize it extensively to achieve a result very close to the new Catalyst UI kit.{" "}
+								Working for three years on <Link href="/projects/extime">Extime.com</Link> taught me to be pixel perfect. I also focused on refining component organization to avoid repetition by using semantic class names. When I use
+								a comprehensive Tailwind UI component, I tend to customize it extensively to achieve a result very close to the new Catalyst UI kit.{" "}
 							</p>
 						</div>
 					</div>
@@ -72,7 +72,7 @@ const Contact = ({ data }: any) => {
 							<h3 className="text-xl font-semibold">I live on the bleeding edge</h3>
 							<p>
 								As I am the only remaining frontend developer on the Paris Airports Extime project, I am always looking for new features within our stack (Next.js, React.js, Tailwind, and Strapi) because it&apos;s my responsibility to
-								leave a well-accomplished project when I eventually leave for your team.
+								leave a well-accomplished project when I eventually leave for your team. I like to watch the Next.js and React.js conference to take not and do a report to my team.
 							</p>
 						</div>
 					</div>
@@ -154,8 +154,12 @@ const Contact = ({ data }: any) => {
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I miss when software used to be fast,</h3>
 							<p>
-								I am a fanatic of Next.js and their caching system. Even when I have to jump on Wordpress project, I tried to use the fastest technologies available, less plugins. I discovered Oxygen Builder (a theme based on React)
-								and I a loving using it for doing Wordpress Website because it&apos;s crazy fast and I can reach de 100 perf score on Google Ligthouse
+								I am a fanatic of Next.js and their{" "}
+								<Link href="https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating" className="underline" target="_blank">
+									caching and revalidation system
+								</Link>
+								. Even when I have to jump on Wordpress project, I tried to use the fastest technologies available, less plugins. I discovered Oxygen Builder (a theme based on React) and I a loving using it for doing Wordpress Website
+								because it&apos;s crazy fast and I can reach de 100 perf score on Google Ligthouse.
 							</p>
 						</div>
 					</div>
@@ -164,8 +168,20 @@ const Contact = ({ data }: any) => {
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am energized by unfamiliar territory.</h3>
 							<p>
-								I really enjoyed when I had to explore the strapi plugin code base to find a way to feat our needs at Paris Airports. At the same time, it dive me to contribute to improve the plugin because I identity it like a need
-								that can serve the community. I was really happy when the plugin authors merged my PRs.
+								I enjoy new things. I was really excited when I had to explore the{" "}
+								<Link href="https://github.com/lautr/strapi-plugin-duplicate-button" className="underline" target="_blank">
+									strapi-plugin-duplicate-button
+								</Link>{" "}
+								codebase to find a way to feat our needs at Paris Airports. At the same time, it dive me to contribute to improve the plugin because I identity it like a need that can serve the community. I was really happy when the
+								plugin authors merged my{" "}
+								<Link href="https://github.com/mattmilburn/strapi-plugin-preview-button/pull/62" target="_blank">
+									strapi-plugin-preview-button
+								</Link>{" "}
+								and{" "}
+								<Link href="https://github.com/lautr/strapi-plugin-duplicate-button/pull/4" target="_blank">
+									strapi-plugin-duplicate-button
+								</Link>{" "}
+								pull requests.
 							</p>
 						</div>
 					</div>
@@ -174,8 +190,8 @@ const Contact = ({ data }: any) => {
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I am great writer.</h3>
 							<p>
-								In French and English. Even if I am perfectible, I like to write my ideas and presents my concept with the most easy words to understand. I am someone who thoroughly enjoys simplifying abstract concepts. I sometimes
-								write somme article on{" "}
+								In French and English. Even if I am perfectible, I like to write my ideas and presents my concept with the most easy words to understand. I am someone who enjoys simplifying abstract concepts. I sometimes write somme
+								article on{" "}
 								<Link href="https://anywwwhere.com/blog" className="underline" target="_blank">
 									Anywwwhere website.
 								</Link>
@@ -187,8 +203,8 @@ const Contact = ({ data }: any) => {
 						<div className="flex-1 space-y-1">
 							<h3 className="text-xl font-semibold">I&apos;m good at breaking down projects. </h3>
 							<p>
-								When I&apos;m on a call with a client and they describe their ideal project with all the features they want because they believe they need them, I redefine the priorities to steer them towards the best MVP (Minimum
-								Viable Product) within a 2-3 month timeframe.
+								When I&apos;m on a call with a client and they describe their ideal project with all the features they want because they believe they need them, I redefine the priorities to propose the best MVP (Minimum Viable
+								Product) within a 2-3 month timeframe.
 							</p>
 						</div>
 					</div>
@@ -208,4 +224,4 @@ const Contact = ({ data }: any) => {
 	)
 }
 
-export default Contact
+export default WhyMe
