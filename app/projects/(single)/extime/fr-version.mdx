@@ -186,6 +186,20 @@ Button.variant = Variant;
 `}
 </WindowMockup>
 
+Ensuite on peut simplement déclaré le bouton de cette manière
+
+<WindowMockup>
+	{`<Button
+    type="submit"
+    width={Button.width.FULL}
+    size={Button.size.LARGE}
+    loading={isSubmitting}
+    disabled={isSubmitting || !isValid}
+>
+    Générer le fichier
+</Button>`}
+</WindowMockup>
+
 Nous avons visé à ce que le site Web consomme peu d'API. Il y a plus de 250 pages en français et en anglais construites statiquement en utilisant la génération de site Web statique incrémentielle. Cela diffère les appels d'API au moment de la construction, et nous utilisons les webhooks Strapi et la révalidation API de Next.js pour mettre à jour la page sur demande. Le système est toujours basé sur l'application de pages, mais nous travaillons actuellement sur une refonte du répertoire de l'application.
 
 Voici un exemple de lecture d'un webhook de page de révalidation d'API.
