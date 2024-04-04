@@ -21,7 +21,7 @@
 		"thumbnail": "/img/epify.jpg",
 		"link": "epify",
 		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "heroku", "stripe"],
-		"homepage_position": 2
+		"homepage_position": 3
 	},
 	{
 		"name": "TenderCulture - Poddium",
@@ -33,11 +33,11 @@
 	},
 	{
 		"name": "TenderCulture - Library",
-		"description": "Marketplace development for selling digital supports. ROI calculator investment. Online payment.",
+		"description": "Marketplace development for selling digital supports. ROI calculator investment. Online payment. Using premade Tailwind UI components",
 		"thumbnail": "/img/tenderculture-library.png",
-		"external_link": "https://library.tenderculture.com",
+		"link": "tc-library",
 		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "stripe"],
-		"homepage_position": 5
+		"homepage_position": 2
 	},
 	{
 		"name": "Webiscore",
@@ -57,7 +57,7 @@
 	},
 	{
 		"name": "Anywwwhere",
-		"description": "My agency website built with modern technologies to promote our company activities.",
+		"description": "My agency website built with modern technologies to promote our company activities. Using Tailwind Studio starter theme.",
 		"thumbnail": "/img/anywwwhere.png",
 		"link": "anywwwhere",
 		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui"],
@@ -189,6 +189,6 @@
 		"thumbnail": "/img/orzale.jpg",
 		"link": "orzale",
 		"stack": ["prestashop", "illustrator", "photoshop", "indesign", "after-effect", "premiere-pro"],
-		"homepage_position": 3
+		"homepage_position": 4
 	}
 ]

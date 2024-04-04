@@ -21,7 +21,7 @@
 		"thumbnail": "/img/epify.jpg",
 		"link": "epify",
 		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "heroku", "stripe"],
-		"homepage_position": 2
+		"homepage_position": 3
 	},
 	{
 		"name": "TenderCulture - Poddium",
@@ -35,9 +35,9 @@
 		"name": "TenderCulture - Bibliothèque",
 		"description": "Développement d'une Marketplace de vente de supports numériques. Calculateur de ROI investissement. Paiement en ligne.",
 		"thumbnail": "/img/tenderculture-library.png",
-		"external_link": "https://library.tenderculture.com",
+		"link": "tc-library",
 		"stack": ["nextjs", "strapi", "tailwindcss", "tailwindui", "vercel", "stripe"],
-		"homepage_position": 5
+		"homepage_position": 2
 	},
 	{
 		"name": "Webiscore",
@@ -189,6 +189,6 @@
 		"thumbnail": "/img/orzale.jpg",
 		"link": "orzale",
 		"stack": ["prestashop", "illustrator", "photoshop", "indesign", "after-effect", "premiere-pro"],
-		"homepage_position": 3
+		"homepage_position": 4
 	}
 ]
