@@ -26,7 +26,7 @@ export default function WhyTailwind() {
 					starter theme to bring Tailwind into this famous existing CMS ? I still have so much things to learn, and I hope you can give me the opportunity to reach the next step of my career and become a greater developer and contributor to
 					the open-source community.
 				</p>
-				<p>Thank you for considering me and thank you for reading me.</p>
+				<p>Thank you for considering me, and thank you for reading me.</p>
 			</div>
 		</section>
 	)
