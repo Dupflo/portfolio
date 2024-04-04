@@ -1,0 +1,170 @@
+import Stack from "../stack"
+import Image from "next/image"
+import Link from "next/link"
+import SellerBlock from "./img/seller-block.jpg"
+import Breadcrumb from "../breadcrumb"
+import WindowMockup from "@/components/WindowMockup"
+
+<Breadcrumb parent="Projets" name="TenderCulture - Library MVP" />
+
+# TenderCulture - Library MVP
+
+Ce projet a été particulièrement satisfaisant car c'était la première fois que j'utilisais Tailwind UI. En réfléchissant à ce projet, j'avais déjà travaillé sur Poddium depuis quelques mois. Pendant ce temps, j'ai trouvé que notre processus de production était trop lourd pour seulement deux développeurs et un propriétaire de produit. Notre propriétaire de produit, <Link href="https://fr.linkedin.com/in/germainchittaro" target="_blank">Germain Chittaro</Link>, produisait constamment des designs fantastiques, mais parfois, les tailles de police ou les marges n'étaient pas précises. De mon point de vue, son attention semblait trop centrée sur les détails graphiques, ce qui, bien que excellent, se traduisait souvent par des délais de développement et de livraison plus longs.
+
+Par conséquent, j'ai proposé qu'il continue à créer des maquettes exceptionnelles mais j'ai suggéré qu'il commence par utiliser les composants de la bibliothèque Tailwind UI comme point de départ, puis les adapter à ses idées graphiques.
+
+<Link href="https://library.tenderculture.com/en-CA" target="_blank">
+	Visitez le site web
+</Link>
+
+## Notre stack pour ce projet
+
+<Stack data={["nextjs", "tailwindcss", "tailwindui", "strapi", "vercel"]} />
+
+Germain a fait un excellent travail en concevant la bibliothèque TenderCulture et en m'aidant à identifier les composants inspirés sur Tailwind UI. Il m'a fallu seulement deux mois de travail à temps partiel pour livrer le MVP.
+
+De mon côté, j'ai fait de mon mieux pour mettre en œuvre les meilleures pratiques de réutilisation des composants.
+
+For example, let's see if you recognize this **seller block** on the homepage?
+
+<Image src={SellerBlock} width={900} />
+
+C'est une variante de <Link href="https://tailwindui.com/components/marketing/sections/feature-sections#component-11e5dbce11b8c462441792503ea864fc" target="_blank" class="underline">ce composant Tailwind UI</Link>.
+
+Et voici comment j'ai travaillé pour améliorer sa réutilisabilité avec NextJS 14.
+
+<WindowMockup title="Proccess component with ProcessCard">
+{`"use client";
+
+import { Text, Title } from "@/components/common/Typography"
+import { AcademicCapIcon, ClockIcon, CurrencyDollarIcon, EyeIcon, LockClosedIcon, PencilSquareIcon } from "@heroicons/react/24/outline"
+import classNames from "classnames"
+import { useTranslations } from "next-intl"
+import Image from "next/image"
+import { ForwardRefExoticComponent, SVGProps } from "react"
+import Heading from "../common/heading"
+
+interface ProcessCardProps {
+image: string;
+subtitle: string;
+title: string;
+description: string;
+features: {
+name: string;
+description: string;
+icon: ForwardRefExoticComponent<SVGProps<SVGSVGElement>>;
+}[];
+reverse?: boolean;
+t: any;
+}
+
+export function ProcessCard({ image, subtitle, title, description, features, reverse, t }: ProcessCardProps) {
+  return (
+    <div className="overflow-hidden">
+      <div className="max-w-container">
+        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 justify-between gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+          <div className={classNames(reverse && "md:order-last", "lg:pr-4 lg:pt-4")}>
+            <div className="mx-auto max-w-2xl space-y-2 lg:mx-0 lg:max-w-lg">
+              <Title tag={Title.tag.H4} size={Title.size.MEDIUM} color={Title.color.PRIMARY}>
+                {t(subtitle)}
+              </Title>
+              <Title tag={Title.tag.H3} size={Title.size.XXLARGE} weight={Title.weight.BOLD}>
+                {t(title)}
+              </Title>
+              <Text size={Text.size.LARGE} color={Text.color.DARK}>
+                {t(description)}
+              </Text>
+              <div>
+                <dl className="mt-6 max-w-xl space-y-8 leading-7 text-gray-600 lg:max-w-none">
+                  {features.map((feature) => (
+                    <div key={feature.name} className="relative pl-9">
+                      <dt className="inline font-semibold text-dark">
+                        <feature.icon className="absolute left-1 top-1 h-5 w-5 text-indigo-600" aria-hidden="true" />
+                        {t(feature.name)}
+                      </dt>{" "}
+                      <dd className="inline">{t(feature.description)}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </div>
+          <Image
+            src={process.env.NEXT_PUBLIC_APP_URL + image}
+            alt="placeholder"
+            className={classNames(reverse ? "ml-0" : "mr-0", "relative mx-auto overflow-hidden sm:px-6 lg:px-0")}
+            width={465}
+            height={465}
+            quality={100}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Process() {
+  const t = useTranslations("home_page.process_component");
+  return (
+    <div className="container mx-auto">
+      <Heading badge={t("badge")} title={t("title")} subtitle={t("subtitle")} />
+      <div className="space-y-16 md:space-y-32">
+        <ProcessCard
+          subtitle="process_1.subtitle"
+          title="process_1.title"
+          description="process_1.description"
+          image="/uploads/Visuel_site_buyer.png"
+          features={[
+            {
+              name: "process_1.features_1.name",
+              description: "process_1.features_1.description",
+              icon: ClockIcon,
+            },
+            {
+              name: "process_1.features_2.name",
+              description: "process_1.features_2.description",
+              icon: AcademicCapIcon,
+            },
+            {
+              name: "process_1.features_3.name",
+              description: "process_1.features_3.description",
+              icon: PencilSquareIcon,
+            },
+          ]}
+          t={t}
+        />
+        <ProcessCard
+          subtitle="process_2.subtitle"
+          title="process_2.title"
+          description="process_2.description"
+          image="/uploads/Visuel_site_seller.png"
+          features={[
+            {
+              name: "process_2.features_1.name",
+              description: "process_2.features_1.description",
+              icon: CurrencyDollarIcon,
+            },
+            {
+              name: "process_2.features_2.name",
+              description: "process_2.features_2.description",
+              icon: EyeIcon,
+            },
+            {
+              name: "process_2.features_3.name",
+              description: "process_2.features_3.description",
+              icon: LockClosedIcon,
+            },
+          ]}
+          t={t}
+          reverse
+        />
+      </div>
+    </div>
+  );
+}
+`}
+</WindowMockup>
+
+Que pensez-vous ? J'ai ajouté la propriété <code>reverse</code> juste pour changer les côtés et appliquer le même composant ci-dessus ou ci-dessous.
+
+L'ensemble de l'application repose sur ces principes, en utilisant cette approche pour construire des composants.
