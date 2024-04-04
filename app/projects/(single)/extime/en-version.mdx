@@ -302,7 +302,7 @@ export default async function revalidateSinglePage(entry: any, res: NextApiRespo
 The main challenge with revalidation is that the app runs on three server instances. When we trigger revalidation through webhook events, we have to revalidate all three instances. For this, we use <Link href="https://azure.microsoft.com/en-us/products/service-bus/" target="_blank">Azure Service bus</Link> to received message from Strapi and dispatch these to the Next.js app. To listen the received message, we add to develop a small custom <code>server.js</code> file.
 
 <WindowMockup title="connectAzureBus() function into server.js file">
-{`const {(ServiceBusClient, ServiceBusAdministrationClient)} = require("@azure/service-bus")
+{`const {ServiceBusClient, ServiceBusAdministrationClient} = require("@azure/service-bus")
 const axios = require("axios") 
 const {getServerUrl} = require("../../utils/get-server-url")
 const {logger} = require("../../utils/logger")
