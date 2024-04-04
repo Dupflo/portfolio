@@ -27,8 +27,8 @@ const Projects = ({ data, lang }: any) => {
 				</Swiper>
 			</div>
 			<div className="mt-10 flex items-center">
-				<Link href={`/${lang}/projects`} className="mt-2 px-5 mx-auto text-center rounded-md bg-slate-800 py-2 text-slate-100 hover:bg-slate-800 hover:shadow-md duration-75">
-					{lang === "en" ? "See more projects" : "Voir plus de projets"}
+				<Link href="/projects" className="mt-2 px-5 mx-auto text-center rounded-md bg-slate-800 py-2 text-slate-100 hover:bg-slate-800 hover:shadow-md duration-75">
+					See more projects
 				</Link>
 			</div>
 		</section>
