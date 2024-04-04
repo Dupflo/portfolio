@@ -1,3 +1,4 @@
+import "highlight.js/styles/monokai.css"
 import { Metadata, ResolvingMetadata } from "next"
 import Script from "next/script"
 import "react-toastify/dist/ReactToastify.css"

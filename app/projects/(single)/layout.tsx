@@ -1,4 +1,5 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/outline"
+import "highlight.js/styles/monokai.css"
 import Link from "next/link"
 
 export default function ProjectLayout({

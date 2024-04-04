@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Breadcrumb from "../breadcrumb"
 import ExtimeHomepage from "./img/extime-homepage.jpg"
+import WindowMockup from "@/components/WindowMockup"
 
 <Breadcrumb parent="Projects" name="Extime.com" />
 
@@ -28,91 +29,268 @@ Since we succeed to redesign the <Link href="https://www.parisaeroport.fr/">Pari
 
 Design was an aspect because we were looking the pixel perfect integration but we had much more technical subjects more about Next.js and the backend features and performance because it's a very high trafic website and subjects to be the target of hackers.
 
+J'ai également défini une manière bien distincte de développer nos composants afin de limiter les surcharges de class et de rendre la customisation la moins permissif possible. C'est comme cela que je développe tous mes composants réutilisables depuis 2021.
+
+<WindowMockup title="@/common/button.tsx">
+{`import { Dispatch, ReactElement, ReactNode, SetStateAction } from "react";
+import Link from "next/link";
+import classNames from "classnames";
+import { IconType } from "react-icons";
+
+enum Variant {
+PRIMARY,
+SECONDARY,
+}
+
+enum Size {
+SMALL,
+NORMAL,
+BASE,
+LARGE,
+}
+
+enum Align {
+LEFT,
+RIGHT,
+CENTER,
+}
+
+enum Width {
+FULL,
+AUTO,
+}
+
+enum Rounded {
+MEDIUM,
+FULL,
+}
+
+interface ButtonProps {
+id?: string;
+variant?: Variant;
+hashId?: string;
+type?: "button" | "submit";
+children: ReactNode;
+size?: Size;
+align?: Align;
+width?: Width;
+rounded?: Rounded;
+href?: string;
+target?: boolean;
+disabled?: boolean;
+onClick?: Dispatch<SetStateAction<any>>;
+loading?: boolean;
+ariaLabel?: string;
+icon?: IconType;
+ref?: any;
+}
+
+const SIZE_MAPS: Record<Size, string> = {
+[Size.SMALL]: "text-small font-medium p-3",
+[Size.NORMAL]: "text-normal font-medium p-3",
+[Size.BASE]: "text-normal font-medium p-4",
+[Size.LARGE]: "text-normal font-medium p-5",
+};
+
+const VARIANT_MAPS: Record<Variant, string> = {
+[Variant.PRIMARY]: "bg-primary border-transparent text-white hover:bg-primary/80 ",
+[Variant.SECONDARY]: "bg-secondary border-transparent text-white hover:bg-secondary/80 ",
+};
+
+const ALIGN_MAPS: Record<Align, string> = {
+[Align.LEFT]: "mr-auto",
+[Align.RIGHT]: "ml-auto",
+[Align.CENTER]: "md:w-auto mx-auto",
+};
+
+const WIDTH_MAPS: Record<Width, string> = {
+[Width.FULL]: "block w-full",
+[Width.AUTO]: "block",
+};
+
+const ROUNDED_MAPS: Record<Rounded, string> = {
+[Rounded.MEDIUM]: "rounded-md",
+[Rounded.FULL]: "rounded-full",
+};
+
+export function Button(props: ButtonProps): ReactElement | null {
+  const {
+    hashId,
+    type,
+    align,
+    width,
+    href,
+    disabled,
+    loading,
+    onClick,
+    target,
+    ariaLabel,
+    variant = Variant.PRIMARY,
+    size = Size.SMALL,
+    rounded = Rounded.MEDIUM,
+    children,
+  } = props;
+
+const renderButton = (
+
+<button
+type={type}
+id={hashId}
+className={classNames(
+"whitespace-no-wrap relative items-center border leading-none transition duration-500 ease-in-out disabled:cursor-not-allowed disabled:opacity-50 lg:px-[35px]",
+VARIANT_MAPS[variant!],
+SIZE_MAPS[size!],
+ALIGN_MAPS[align!],
+WIDTH_MAPS[width!],
+ROUNDED_MAPS[rounded!]
+)}
+onClick={onClick}
+disabled={disabled}
+aria-label={ariaLabel} >
+{loading && (
+<svg
+          className="absolute bottom-0 left-0 right-0 top-0 m-auto h-5 w-5 animate-spin text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+<path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          />
+</svg>
+)}
+<span className="relative">
+{props.icon && <props.icon className="absolute -left-3 top-0 h-5 w-5" />}
+<span className={classNames(loading && "invisible", props.icon && "pl-3")}>{children}</span>
+</span>
+</button>
+);
+
+if (href)
+return (
+
+<Link className={classNames(WIDTH_MAPS[width!])} href={href} target={target ? "\_blank" : "\_self"}>
+{renderButton}
+</Link>
+);
+return renderButton;
+}
+Button.type = "button";
+Button.size = Size;
+Button.align = Align;
+Button.width = Width;
+Button.rounded = Rounded;
+Button.variant = Variant;
+`}
+</WindowMockup>
+
 We aimed for the website to have low API consumption. There are more than 250 pages in French and English statically built using the incremental static website generation. This defers the API calls at build time, and we use Strapi webhooks and Next.js API revalidation to update the page on demand. The system is still based on the pages app, but we are currently working on an app directory refactoring.
 
 Here is an example of revalidation page api reading webhook body
 
-<code>/api/revalidate</code>
-```javascript import {(revalidateEntireApp, revalidateModelStaticFile, revalidatePagesByType, revalidateSinglePage)} from "@helpers/revalidation" import {logger} from "@utils/logger" import {(NextApiRequest, NextApiResponse)} from "next"
+<WindowMockup title="/api/revalidate">
+{`import { fetchAPI, getStrapiDataFromJSON } from "@helpers/app/strapi";
+import { logger } from "@utils/logger";
+import { NextApiResponse } from "next";
+import { StrapiRedirection } from "types";
 
-export default async function handlerRevalidation(req: NextApiRequest, res: NextApiResponse) {
-	if (req.method === "POST") {
-		const { event, query } = req.body
-		if (event === "trigger-test") {
-			if (query === "revalidate=full") {
-				await revalidateEntireApp(res, "REVALIDATE_FULL")
-			} else {
-				logger.info("TRIGGER_TEST:RECEIVED")
-			}
-		} else if (event === "app-start") {
-			await revalidateEntireApp(res, "REVALIDATE_START")
-		} else {
-			const { model, entry } = req.body
-			switch (true) {
-				case model === "page":
-					await revalidateSinglePage(entry, res)
-					break
-				case model === "contact" || model === "offer" || model === "brand":
-					await revalidatePagesByType(model, entry, res)
-					break
-				default:
-					await revalidateModelStaticFile(model, entry, res)
-			}
-		}
-		return res.json({ revalidated: true })
-	}
-	return res.json({ revalidated: false })
-}
-```
-
-<code>revalidateSinglePage()</code>
-
-```javascript import {(fetchAPI, getStrapiDataFromJSON)} from "@helpers/app/strapi" import {logger} from "@utils/logger" import {NextApiResponse} from "next" import {StrapiRedirection} from "types"
 export default async function revalidateSinglePage(entry: any, res: NextApiResponse) {
-	try {
-		const { relative_url, locale } = entry
+    try {
+        const { relative_url, locale } = entry;
 
-		logger.info(`SINGLE_PAGE_REVALIDATE:START /${locale}${relative_url}`)
-		await res.revalidate(`/${locale}${relative_url}`) // on revalide la page
-		logger.info(`SINGLE_PAGE_REVALIDATE:DONE  /${locale}${relative_url}`)
+        logger.info("SINGLE_PAGE_REVALIDATE:START /" + locale + relative_url);
+        await res.revalidate("/" + locale + relative_url); // on revalide la page
+        logger.info("SINGLE_PAGE_REVALIDATE:DONE  /" + locale + relative_url);
 
-		setTimeout(async () => {
-			const redirections = await getStrapiDataFromJSON("redirections", locale, false)
-			const foundPageToRemove = redirections.data.find((redirection: StrapiRedirection) => redirection.attributes.destination === relative_url && !redirection.attributes.revalidated)
-			if (foundPageToRemove) {
-				const oldUrl = `/${locale}${foundPageToRemove.attributes.source}`
+        setTimeout(async () => {
+            const redirections = await getStrapiDataFromJSON("redirections", locale, false);
+            const foundPageToRemove = redirections.data.find((redirection: StrapiRedirection) => redirection.attributes.destination === relative_url && !redirection.attributes.revalidated);
+            if (foundPageToRemove) {
+                const oldUrl = "/" + locale + foundPageToRemove.attributes.source;
 
-				logger.info(`OLD_PAGE_REMOVE:START ${oldUrl}`)
-				await res.revalidate(oldUrl)
-				logger.info(`OLD_PAGE_REMOVE:DONE  ${oldUrl}`)
+                logger.info("OLD_PAGE_REMOVE:START " + oldUrl);
+                await res.revalidate(oldUrl);
+                logger.info("OLD_PAGE_REMOVE:DONE  " + oldUrl);
 
-				await fetchAPI(
-					`/redirections/${foundPageToRemove.id}`,
-					locale,
-					{
-						data: {
-							revalidated: true,
-						},
-					},
-					false,
-					"PUT"
-				)
-				logger.info(`OLD_PAGE_CREATE_REDIRECTION:DONE ${oldUrl}`)
-			}
-		}, 5000)
-	} catch (err) {
-		logger.error(JSON.stringify(err))
-	}
+                await fetchAPI(
+                    "/redirections/" + foundPageToRemove.id,
+                    locale,
+                    {
+                        data: {
+                            revalidated: true,
+                        },
+                    },
+                    false,
+                    "PUT"
+                );
+                logger.info("OLD_PAGE_CREATE_REDIRECTION:DONE " + oldUrl);
+            }
+        }, 5000);
+    } catch (err) {
+        logger.error(JSON.stringify(err));
+    }
+
 }
-```
+`}
+
+</WindowMockup>
+
+<WindowMockup title="revalidateSinglePage()">
+{`import { fetchAPI, getStrapiDataFromJSON } from "@helpers/app/strapi";
+import { logger } from "@utils/logger";
+import { NextApiResponse } from "next";
+import { StrapiRedirection } from "types";
+
+export default async function revalidateSinglePage(entry: any, res: NextApiResponse) {
+    try {
+        const { relative_url, locale } = entry;
+
+        logger.info("SINGLE_PAGE_REVALIDATE:START /" + locale + relative_url);
+        await res.revalidate("/" + locale + relative_url); // on revalide la page
+        logger.info("SINGLE_PAGE_REVALIDATE:DONE  /" + locale + relative_url);
+
+        setTimeout(async () => {
+            const redirections = await getStrapiDataFromJSON("redirections", locale, false);
+            const foundPageToRemove = redirections.data.find((redirection: StrapiRedirection) => redirection.attributes.destination === relative_url && !redirection.attributes.revalidated);
+            if (foundPageToRemove) {
+                const oldUrl = "/" + locale + foundPageToRemove.attributes.source;
+
+                logger.info("OLD_PAGE_REMOVE:START " + oldUrl);
+                await res.revalidate(oldUrl);
+                logger.info("OLD_PAGE_REMOVE:DONE  " + oldUrl);
+
+                await fetchAPI(
+                    "/redirections/" + foundPageToRemove.id,
+                    locale,
+                    {
+                        data: {
+                            revalidated: true,
+                        },
+                    },
+                    false,
+                    "PUT"
+                );
+                logger.info("OLD_PAGE_CREATE_REDIRECTION:DONE " + oldUrl);
+            }
+        }, 5000);
+    } catch (err) {
+        logger.error(JSON.stringify(err));
+    }
+
+}
+`}
+
+</WindowMockup>
 
 The main challenge with revalidation is that the app runs on three server instances. When we trigger revalidation through webhook events, we have to revalidate all three instances. For this, we use <Link href="https://azure.microsoft.com/en-us/products/service-bus/" target="_blank">Azure Service bus</Link> to received message from Strapi and dispatch these to the Next.js app. To listen the received message, we add to develop a small custom <code>server.js</code> file.
 
-<code>connectAzureBus() function into server.js file</code>
-
-```
-const {(ServiceBusClient, ServiceBusAdministrationClient)} = require("@azure/service-bus")
-const axios = require("axios") const {getServerUrl} = require("../../utils/get-server-url")
+<WindowMockup title="connectAzureBus() function into server.js file">
+{`const {(ServiceBusClient, ServiceBusAdministrationClient)} = require("@azure/service-bus")
+const axios = require("axios") 
+const {getServerUrl} = require("../../utils/get-server-url")
 const {logger} = require("../../utils/logger")
 
 async function connectAzureBus() {
@@ -120,7 +298,7 @@ const { serverUrl } = getServerUrl()
 
     const connectionString = process.env.SERVICE_BUS_CONNECTION_STRING_APP_LISTEN
     const topicName = process.env.SERVICE_BUS_TOPIC_NAME
-    const subscriptionName = `mkpl_app_${Date.now()}`
+    const subscriptionName = 'mkpl_app_' + Date.now()
 
     const serviceBusAdministrationClient = new ServiceBusAdministrationClient(connectionString)
 
@@ -133,10 +311,10 @@ const { serverUrl } = getServerUrl()
 
     const myMessageHandler = async messageReceived => {
     	const { body } = messageReceived
-    	logger.info(`AZURE_BUS ${JSON.stringify(body)}`)
-    	await axios.post(`${serverUrl}/api/webhook/revalidate`, body, {
+    	logger.info('AZURE_BUS ' + JSON.stringify(body))
+    	await axios.post(serverUrl + '/api/webhook/revalidate', body, {
     		headers: {
-    			Authorization: `Bearer ${process.env.APP_API_KEY}`,
+    			Authorization: "Bearer" + process.env.APP_API_KEY,
     		},
     	})
     }
@@ -150,13 +328,9 @@ const { serverUrl } = getServerUrl()
     	processError: myErrorHandler,
     })
 
-}
+}`}
 
-module.exports = {
-connectAzureBus,
-}
-
-```
+</WindowMockup>
 
 ### Contributions to Open Source Strapi plugins
 
