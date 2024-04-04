@@ -37,12 +37,12 @@ Et voici comment j'ai travaillé pour améliorer sa réutilisabilité avec NextJ
 {`"use client";
 
 import { Text, Title } from "@/components/common/Typography"
+import Heading from "@/components/common/heading"
 import { AcademicCapIcon, ClockIcon, CurrencyDollarIcon, EyeIcon, LockClosedIcon, PencilSquareIcon } from "@heroicons/react/24/outline"
 import classNames from "classnames"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { ForwardRefExoticComponent, SVGProps } from "react"
-import Heading from "../common/heading"
 
 interface ProcessCardProps {
 image: string;
