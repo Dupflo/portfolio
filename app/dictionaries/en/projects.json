@@ -65,7 +65,7 @@
 	},
 	{
 		"name": "Absolunet | Vuse.com",
-		"description": "Integration of new Front-End & Back-End features under the Koa.JS (Node.js) + and Gatsby.JS (React.JS) frameworks.",
+		"description": "Front-End & Back-End development under the Koa.JS (Node.js) + and Gatsby.JS (React.JS) framework.",
 		"thumbnail": "/img/vuse.jpg",
 		"link": "absolunet-vuse",
 		"stack": ["gatsby", "koa", "styled-component", "kubernetes", "docker"],
