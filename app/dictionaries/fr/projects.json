@@ -64,11 +64,12 @@
 		"homepage_position": 5
 	},
 	{
-		"name": "Vuse.com Canada",
+		"name": "Absolunet | Vuse.com",
 		"description": "Maintenance, optimisation, intégration de nouvelles fonctionnalités Front-End & Back-End sous les frameworks Koa.JS (Node.js) + et Gatsby.JS (React.JS).",
 		"thumbnail": "/img/vuse.jpg",
-		"external_link": "https://www.vuse.com/ca/en",
-		"stack": ["gatsby", "koa", "styled-component", "kubernetes", "docker"]
+		"link": "absolunet-vuse",
+		"stack": ["gatsby", "koa", "styled-component", "kubernetes", "docker"],
+		"homepage_position": 6
 	},
 	{
 		"name": "Menu interactif Obypay",
@@ -166,8 +167,7 @@
 		"description": "Maintenance, optimisation des performances du site. Ajout de nouvelles fonctionnalités. Maintenance d'un serveur dédié OVH.",
 		"thumbnail": "/img/hannahpad.jpg",
 		"external_link": "https://hannahpad.fr/",
-		"stack": ["prestashop", "javascript", "cloudflare", "photoshop"],
-		"homepage_position": 10
+		"stack": ["prestashop", "javascript", "cloudflare", "photoshop"]
 	},
 	{
 		"name": "Piercing Popart E-Commerce",
@@ -185,7 +185,7 @@
 	},
 	{
 		"name": "Orzale Sport",
-		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"description": "Ma première experience en tant qu'entrepreneur. Création de site e-commerce, design de produit, gestion de projet, réseaux sociaux",
 		"thumbnail": "/img/orzale.jpg",
 		"link": "orzale",
 		"stack": ["prestashop", "illustrator", "photoshop", "indesign", "after-effect", "premiere-pro"],
