@@ -64,11 +64,12 @@
 		"homepage_position": 5
 	},
 	{
-		"name": "Vuse.com Canada",
-		"description": "Maintenance, optimization, integration of new Front-End & Back-End features under the Koa.JS (Node.js) + and Gatsby.JS (React.JS) frameworks.",
+		"name": "Absolunet | Vuse.com",
+		"description": "Integration of new Front-End & Back-End features under the Koa.JS (Node.js) + and Gatsby.JS (React.JS) frameworks.",
 		"thumbnail": "/img/vuse.jpg",
-		"external_link": "https://www.vuse.com/ca/en",
-		"stack": ["gatsby", "koa", "styled-component", "kubernetes", "docker"]
+		"link": "absolunet-vuse",
+		"stack": ["gatsby", "koa", "styled-component", "kubernetes", "docker"],
+		"homepage_position": 6
 	},
 	{
 		"name": "Obypay Interactive Menu",
@@ -166,8 +167,7 @@
 		"description": "Maintenance, optimization of site performance. Added new features. Maintenance of a dedicated OVH server.",
 		"thumbnail": "/img/hannahpad.jpg",
 		"external_link": "https://hannahpad.fr/",
-		"stack": ["prestashop", "javascript", "cloudflare", "photoshop"],
-		"homepage_position": 10
+		"stack": ["prestashop", "javascript", "cloudflare", "photoshop"]
 	},
 	{
 		"name": "E-Commerce Popart Piercing",
@@ -185,7 +185,7 @@
 	},
 	{
 		"name": "Orzale Sport",
-		"description": "Creation of a showcase site aimed at highlighting the archeology site. Made in Wordpress using the Divi theme builder.",
+		"description": "My first experience as an entrepreneur. Creation of e-commerce site, product design, project management, social networks.",
 		"thumbnail": "/img/orzale.jpg",
 		"link": "orzale",
 		"stack": ["prestashop", "illustrator", "photoshop", "indesign", "after-effect", "premiere-pro"],
